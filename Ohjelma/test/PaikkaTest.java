@@ -1,25 +1,20 @@
 
-import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class JouluTiraTest {
+public class PaikkaTest {
     
     Sokkelo s;
     
-    public JouluTiraTest() {
+    public PaikkaTest() {
     }
         
     @Before
     public void setUp() {
         s = new Sokkelo();
     }
-    
-    @After
-    public void tearDown() {
-    }
-    
+        
     @Test
     public void testaaEttaAnnettuPaikkaOnOikea(){
         

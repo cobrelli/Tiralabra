@@ -4,7 +4,6 @@ public class JouluTira {
     public static void main(String[] args) {
 
         Paikka p = new Paikka(1, 1);
-        System.out.println(p.getX());
 
         Sokkelo s = new Sokkelo();
         
@@ -21,11 +20,4 @@ public class JouluTira {
             System.out.println();
         }
     }
-    public static char[][] sokkelo = new char[][]{
-        {'0', 'X', 'X', '0', '0'},
-        {'0', '0', 'X', '0', '0'},
-        {'0', '0', '0', '0', '0'},
-        {'0', '0', '0', 'X', '0'},
-        {'0', '0', '0', 'X', '0'}
-    };
 }
