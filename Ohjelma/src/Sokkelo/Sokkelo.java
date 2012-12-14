@@ -73,19 +73,15 @@ public class Sokkelo {
         sokkelo[y][x] = 1;
         
         if (onkoValidi(sokkelo, y - 1, x)) {
-//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y - 1, x);
         }
         if (onkoValidi(sokkelo, y, x - 1)) {
-//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y, x - 1);
         }
         if (onkoValidi(sokkelo, y + 1, x)) {
-//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y + 1, x);
         }
         if (onkoValidi(sokkelo, y, x + 1)) {
-//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y, x + 1);
         }
         return false;
@@ -109,11 +105,15 @@ public class Sokkelo {
     }
 
     /**
-     *
-     * @param korkeus
-     * @param leveys
-     * @param sokkelo
-     * @param testattava
+     * Generoi uuden sokkelon, jossa randomilla saadaan luku 0-1 välillä, jos luku
+     * on korkeitaan 0.3 niin akselin paikalle luodaan seinä, muuten käytävä.
+     * Sokkeloita luodaan erikseen palautettava ja testattava.
+     * 
+     * @param korkeus       kertoo sokkelon maksimikorkeuden
+     * @param leveys        kertoo sokkelon maksimileveyden
+     * @param sokkelo       matriisi johon generoidaan sokkelo
+     * @param testattava    on toinen matriisi johon generoidaan sokkelo, tätä myös
+     *                      tutkitaan DFS:llä
      */
     public void generoiSokkelo(int korkeus, int leveys, int[][] sokkelo, int[][] testattava) {
         for (int i = 0; i < korkeus; i++) {
