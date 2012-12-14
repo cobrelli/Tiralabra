@@ -1,3 +1,5 @@
+package Sokkelo;
+
 
 import java.util.Random;
 
@@ -67,21 +69,23 @@ public class Sokkelo {
             onkoLapaistavissa = true;
             return true;
         }
-
+        
+        sokkelo[y][x] = 1;
+        
         if (onkoValidi(sokkelo, y - 1, x)) {
-            sokkelo[y][x] = 1;
+//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y - 1, x);
         }
         if (onkoValidi(sokkelo, y, x - 1)) {
-            sokkelo[y][x] = 1;
+//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y, x - 1);
         }
         if (onkoValidi(sokkelo, y + 1, x)) {
-            sokkelo[y][x] = 1;
+//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y + 1, x);
         }
         if (onkoValidi(sokkelo, y, x + 1)) {
-            sokkelo[y][x] = 1;
+//            sokkelo[y][x] = 1;
             testaaSokkelo(sokkelo, y, x + 1);
         }
         return false;

@@ -1,3 +1,5 @@
+package Algoritmit;
+
 /**
  * Paikkaluokka joka muuntaa matriisin koordinaatit yhteen olioon jolla sekä
  * x että y akseli tiedossa
