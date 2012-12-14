@@ -16,7 +16,7 @@ import java.util.Random;
 public class Sokkelo {
 
     Random r;
-    boolean onkoLapaistavissa;
+    private boolean onkoLapaistavissa;
 
     /**
      *  Konstruktori alustaa Randomin
@@ -25,7 +25,9 @@ public class Sokkelo {
         r = new Random();
     }
 
-    
+    public boolean getOnkoLapaistava(){
+        return this.onkoLapaistavissa;
+    }
     /**
      * Luo uuden halutunkorkuisen ja levyisen sokkelon
      * generoi sokkelon ja testattavan sokkelon, ja kutsuu sitten testaaSokkeloa, joka
@@ -63,11 +65,11 @@ public class Sokkelo {
      * @param x         on sen hetkinen akselin X paikka taulukossa, alkaa 0.
      * @return          Palauttaa true tai false riippuen ratkaistavuudesta    
      */
-    public boolean testaaSokkelo(int[][] sokkelo, int y, int x) {
+    public void testaaSokkelo(int[][] sokkelo, int y, int x) {
 
         if (y == sokkelo.length - 1 && x == sokkelo[0].length - 1) {
             onkoLapaistavissa = true;
-            return true;
+            return;
         }
         
         sokkelo[y][x] = 1;
@@ -84,7 +86,6 @@ public class Sokkelo {
         if (onkoValidi(sokkelo, y, x + 1)) {
             testaaSokkelo(sokkelo, y, x + 1);
         }
-        return false;
     }
 
     /**

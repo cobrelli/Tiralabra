@@ -3,7 +3,7 @@ package Main;
 import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
 
-public class JouluTira {
+public class Main {
 
     public static void main(String[] args) {
 
