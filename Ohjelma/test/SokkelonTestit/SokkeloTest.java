@@ -5,6 +5,7 @@ package SokkelonTestit;
  * and open the template in the editor.
  */
 import Sokkelo.Sokkelo;
+import java.util.Random;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +32,8 @@ public class SokkeloTest {
      */
     @Before
     public void setUp() {
-        s = new Sokkelo();
+        Random random = new Random();
+        s = new Sokkelo(random);
     }
 
     /**

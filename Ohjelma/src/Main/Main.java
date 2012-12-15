@@ -1,19 +1,33 @@
 package Main;
 
+import Algoritmit.BruteForce;
 import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        Random random = new Random();
+
         Paikka p = new Paikka(1, 1);
 
-        Sokkelo s = new Sokkelo();
-        
-        int[][] toka = s.teeSokkelo(10, 10);
+        Sokkelo s = new Sokkelo(random);
 
-        tulosta(toka);
+        BruteForce bf = new BruteForce();
+
+        int[][] toka = s.teeSokkelo(10000, 10000);
+//        tulosta(toka);
+        double luku = System.currentTimeMillis();
+        int pituus = bf.AjaBruteForce(toka, random);
+        double luku2 = System.currentTimeMillis();
+        
+//        tulosta(toka);
+        
+        System.out.println("asd " + (luku2-luku));
+        System.out.println(pituus);
+        
     }
 
     public static void tulosta(int[][] s) {
