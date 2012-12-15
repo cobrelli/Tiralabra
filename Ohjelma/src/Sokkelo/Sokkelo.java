@@ -1,6 +1,5 @@
 package Sokkelo;
 
-
 import java.util.Random;
 
 /**
@@ -25,6 +24,10 @@ public class Sokkelo {
         r = new Random();
     }
 
+    /**
+     * 
+     * @return palauttaa viimeisimmän luodun sokkelon lapaistavyyden
+     */
     public boolean getOnkoLapaistava(){
         return this.onkoLapaistavissa;
     }
@@ -63,7 +66,6 @@ public class Sokkelo {
      * @param sokkelo   on testattava aiemmin generoitu sokkelo
      * @param y         on sen hetkinen akselin Y paikka taulukossa, alkaa 0.
      * @param x         on sen hetkinen akselin X paikka taulukossa, alkaa 0.
-     * @return          Palauttaa true tai false riippuen ratkaistavuudesta    
      */
     public void testaaSokkelo(int[][] sokkelo, int y, int x) {
 
