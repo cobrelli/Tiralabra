@@ -5,8 +5,16 @@ import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
 import java.util.Random;
 
+/**
+ *
+ * @author Cobrelli
+ */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         Random random = new Random();
@@ -30,6 +38,10 @@ public class Main {
         
     }
 
+    /**
+     *
+     * @param s
+     */
     public static void tulosta(int[][] s) {
         for (int i = 0; i < s.length; i++) {
             for (int n = 0; n < s.length; n++) {

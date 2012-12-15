@@ -70,7 +70,7 @@ public class Sokkelo {
      * @param sokkelo on testattava aiemmin generoitu sokkelo
      * @return      Palauttaa true jos läpäistävissä, false jos ei. 
      */
-    public boolean testaaSokkeloIteratiivisellaDFS(int[][] sokkelo) {
+    private boolean testaaSokkeloIteratiivisellaDFS(int[][] sokkelo) {
 
         Stack<Paikka> s = new Stack<>();
         int y = 0;
@@ -101,7 +101,7 @@ public class Sokkelo {
      * @param x             Paikka missä ollaan X -akselin mukaisesti
      * @param s             Pino johon uudet liikkumiset asetetaan
      */
-    public void puskeMahdollisetLiikkeetPinoon(int[][] sokkelo, int y, int x, Stack s) {
+    private void puskeMahdollisetLiikkeetPinoon(int[][] sokkelo, int y, int x, Stack s) {
         if (onkoValidi(sokkelo, y - 1, x)) {
             s.add(new Paikka(y-1, x));
         }
@@ -126,7 +126,7 @@ public class Sokkelo {
      * @param x paikka X akselilla johon halutaan liikkua
      * @return palauttaa false jos ei validi, palauttaa true jos validi.
      */
-    public boolean onkoValidi(int[][] s, int y, int x) {
+    private boolean onkoValidi(int[][] s, int y, int x) {
         if (y > s.length - 1 || y < 0 || x < 0 || x > s[0].length - 1 || s[y][x] == 1) {
             return false;
         }

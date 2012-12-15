@@ -76,7 +76,7 @@ public class BruteForce {
      * @param x     Kertoo haettavan kohdan paikan x -akselilla.
      * @return      Jos siirto voidaan suorittaa palauttaa true, muuten false.
      */
-    public boolean onkoSallittuLiike(int[][] s, int y, int x) {
+    private boolean onkoSallittuLiike(int[][] s, int y, int x) {
         if (y > s.length - 1 || y < 0 || x < 0 || x > s[0].length - 1 || s[y][x] == 1) {
             return false;
         }
