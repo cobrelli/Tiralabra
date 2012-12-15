@@ -35,10 +35,9 @@ public class BruteForce {
         int x = 0;
         int luku;
 
-        while (x != sokkelo[0].length-1 && y != sokkelo.length-1) {
+        while (true) {
 
             luku = random.nextInt(4) + 1;
-
             if (luku == 1) {
                 if (onkoSallittuLiike(sokkelo, y - 1, x)) {
                     y--;
@@ -59,6 +58,10 @@ public class BruteForce {
                     x++;
                     kokonaisPituus++;
                 }
+            }
+            
+            if(x == sokkelo[0].length-1 && y == sokkelo.length-1){
+                break;
             }
             
         }

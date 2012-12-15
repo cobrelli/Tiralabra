@@ -144,7 +144,7 @@ public class Sokkelo {
      * @param testattava on toinen matriisi johon generoidaan sokkelo, tätä myös
      * tutkitaan DFS:llä
      */
-    public void generoiSokkelo(int korkeus, int leveys, int[][] sokkelo, int[][] testattava) {
+    private void generoiSokkelo(int korkeus, int leveys, int[][] sokkelo, int[][] testattava) {
         for (int i = 0; i < korkeus; i++) {
             for (int n = 0; n < leveys; n++) {
                 double luku = r.nextDouble();

@@ -17,7 +17,7 @@ public class Main {
 
         BruteForce bf = new BruteForce();
 
-        int[][] toka = s.teeSokkelo(10000, 10000);
+        int[][] toka = s.teeSokkelo(3, 3);
 //        tulosta(toka);
         double luku = System.currentTimeMillis();
         int pituus = bf.AjaBruteForce(toka, random);
