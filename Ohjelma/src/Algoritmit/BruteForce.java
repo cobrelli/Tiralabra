@@ -12,9 +12,19 @@ import java.util.Random;
  */
 public class BruteForce {
 
+    /**
+     * Konstruktoi uuden BruteForce luokan jolla voidaan ajaa erilaisia sokkeloita
+     * lävitse ja tarkastella selvitysten nopeutta.
+     */
     public BruteForce() {
     }
 
+    /**
+     *
+     * @param sokkelo
+     * @param random
+     * @return
+     */
     public int AjaBruteForce(int[][] sokkelo, Random random) {
         int kokonaisPituus = 0;
 
@@ -53,6 +63,13 @@ public class BruteForce {
         return kokonaisPituus;
     }
 
+    /**
+     *
+     * @param s
+     * @param y
+     * @param x
+     * @return
+     */
     public boolean onkoSallittuLiike(int[][] s, int y, int x) {
         if (y > s.length - 1 || y < 0 || x < 0 || x > s[0].length - 1 || s[y][x] == 1) {
             return false;

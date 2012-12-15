@@ -64,7 +64,8 @@ public class Sokkelo {
      * Testaa DFS:llä että annettu sokkelo on mahdollista läpäistä. Jos on
      * saavutettu maalipiste niin sokkelo on ratkaistavissa ja muutetaan
      * globaali muuttuja true arvoon, muuten palautetaan false. Käyttää validien
-     * liikkeiden määrittelyyn apumetodia onkoValidi.
+     * liikkeiden määrittelyyn apumetodia onkoValidi. Ja pinoon puskemiseen
+     * apumetodia puskeMahdollisetLiikkeetPinoon().
      *
      * @param sokkelo on testattava aiemmin generoitu sokkelo
      * @return      Palauttaa true jos läpäistävissä, false jos ei. 
