@@ -71,7 +71,8 @@ public class SokkeloTest {
     }
 
     /**
-     *
+     * Tarkistaa että pieni palautettava sokkelo on läpäistävissä, eli sokkelon oma
+     * testi on mennyt läpi.
      */
     @Test
     public void testaaEttaPalautettavaPieniSokkeloPalauttaaTrue() {
@@ -81,7 +82,8 @@ public class SokkeloTest {
     }
 
     /**
-     *
+     * Tarkistaa että suuri palautettava sokkelo on läpäistävissä, eli sokkelon oma
+     * testi on mennyt läpi.
      */
     @Test
     public void testaaEttaPalautettavaSuuriSokkeloPalauttaaTrue() {
@@ -91,7 +93,7 @@ public class SokkeloTest {
     }
     
     /**
-     *
+     * Tarkistaa 10 eri sokkelolla että kaikki sokkelot ovat läpäistäviä.
      */
     @Test
     public void testaaUseastiEttaPalautettavaSuuriSokkeloPalauttaaTrue() {
@@ -123,10 +125,16 @@ public class SokkeloTest {
     boolean onkoLapaistavissa;
     
     /**
-     *
-     * @param sokkelo
-     * @param y
-     * @param x
+     * Testaa DFS:llä että annettu sokkelo on mahdollista läpäistä. Jos on 
+     * saavutettu maalipiste niin sokkelo on ratkaistavissa ja muutetaan globaali
+     * muuttuja true arvoon, muuten palautetaan false. Käyttää
+     * validien liikkeiden määrittelyyn apumetodia onkoValidi. Tämä on vielä
+     * Sokkelo luokan oman DFS:n lisäksi toinen testi, joka tarkastaa että sokkelo
+     * on oikeasti tuottanut läpäistävän sokkelon.
+     * 
+     * @param sokkelo   on testattava aiemmin generoitu sokkelo
+     * @param y         on sen hetkinen akselin Y paikka taulukossa, alkaa 0.
+     * @param x         on sen hetkinen akselin X paikka taulukossa, alkaa 0.
      */
     public void testaaSokkelo(int[][] sokkelo, int y, int x) {
 
@@ -152,11 +160,14 @@ public class SokkeloTest {
     }
 
     /**
-     *
-     * @param s
-     * @param y
-     * @param x
-     * @return
+     * Tarkistaa onko siirtyminen validi liike. Ei valideja liikkeitä ovat
+     * matriisin reunojen ylitse menevät siirtymiset tai jos paikka sisältää
+     * seinän.
+     * 
+     * @param s     taulukko, jota tarkastellaan
+     * @param y     paikka Y akselilla johon halutaan liikkua
+     * @param x     paikka X akselilla johon halutaan liikkua
+     * @return      palauttaa false jos ei validi, palauttaa true jos validi.
      */
     public boolean onkoValidi(int[][] s, int y, int x) {
         if (y > s.length - 1 || y < 0 || x < 0 || x > s[0].length - 1 || s[y][x] == 1) {
