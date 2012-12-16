@@ -1,5 +1,6 @@
 package Main;
 
+import Algoritmit.BellmanFord;
 import Algoritmit.BruteForce;
 import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
@@ -36,6 +37,11 @@ public class Main {
         System.out.println("asd " + (luku2-luku));
         System.out.println(pituus);
         
+        System.out.println("bellman");
+        BellmanFord bell = new BellmanFord();
+        bell.ratkaiseSokkelo(toka);
+        
+        tulosta(toka);
     }
 
     /**
