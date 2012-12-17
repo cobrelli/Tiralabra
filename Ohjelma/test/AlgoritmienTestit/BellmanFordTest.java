@@ -32,4 +32,10 @@ public class BellmanFordTest {
         assertTrue(onkoLiianPitka);
     }
 
+    @Test
+    public void testaaPituuttaHelpolla(){
+        int pituus = bf.ratkaiseSokkelo(s.teeSokkelo(1, 5));
+        assertEquals(4, pituus);
+    }
+    
 }
