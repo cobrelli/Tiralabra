@@ -48,7 +48,7 @@ public class Dijkstra {
             relax(sokkelo, q, paikat, lahin, lahin.getY(), lahin.getX() - 1);
         }
 
-        return 0;
+        return paikat[sokkelo.length-1][sokkelo[0].length-1].getEtaisyys();
 
     }
 
@@ -60,6 +60,17 @@ public class Dijkstra {
 
         int uusiEtaisyys = p.getEtaisyys() + 1;
         
+        if(paikat[y][x] == null){
+            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
+            q.add(paikat[y][x]);
+            return;
+        }
         
+        int vanhaEtaisyys = paikat[y][x].getEtaisyys();
+        if(uusiEtaisyys<vanhaEtaisyys){
+            q.remove(paikat[y][x]);
+            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
+            q.add(paikat[y][x]);
+        }
     }
 }

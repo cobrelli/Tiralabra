@@ -2,6 +2,7 @@ package Main;
 
 import Algoritmit.BellmanFord;
 import Algoritmit.BruteForce;
+import Algoritmit.Dijkstra;
 import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
 import java.util.Random;
@@ -28,20 +29,23 @@ public class Main {
 
         int[][] toka = s.teeSokkelo(3, 3);
 //        tulosta(toka);
-        double luku = System.currentTimeMillis();
-        int pituus = bf.AjaBruteForce(toka, random);
-        double luku2 = System.currentTimeMillis();
+//        double luku = System.currentTimeMillis();
+//        int pituus = bf.AjaBruteForce(toka, random);
+//        double luku2 = System.currentTimeMillis();
         
 //        tulosta(toka);
         
-        System.out.println("asd " + (luku2-luku));
-        System.out.println(pituus);
+//        System.out.println("asd " + (luku2-luku));
+//        System.out.println(pituus);
+//        
+//        System.out.println("bellman");
+//        BellmanFord bell = new BellmanFord();
+//        bell.ratkaiseSokkelo(toka);
+//        
+//        tulosta(toka);
         
-        System.out.println("bellman");
-        BellmanFord bell = new BellmanFord();
-        bell.ratkaiseSokkelo(toka);
-        
-        tulosta(toka);
+        Dijkstra d = new Dijkstra();
+        int pituusD = d.ratkaiseSokkelo(toka);
     }
 
     /**
