@@ -103,16 +103,16 @@ public class Sokkelo {
      */
     private void puskeMahdollisetLiikkeetPinoon(int[][] sokkelo, int y, int x, Stack s) {
         if (onkoValidi(sokkelo, y - 1, x)) {
-            s.add(new Paikka(y-1, x));
+            s.add(new Paikka(y-1, x, 0));
         }
         if (onkoValidi(sokkelo, y, x - 1)) {
-            s.add(new Paikka(y, x-1));
+            s.add(new Paikka(y, x-1, 0));
         }
         if (onkoValidi(sokkelo, y + 1, x)) {
-            s.add(new Paikka(y+1, x));
+            s.add(new Paikka(y+1, x, 0));
         }
         if (onkoValidi(sokkelo, y, x + 1)) {
-            s.add(new Paikka(y, x+1));
+            s.add(new Paikka(y, x+1, 0));
         }
     }
 

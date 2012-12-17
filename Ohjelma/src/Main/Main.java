@@ -20,7 +20,7 @@ public class Main {
 
         Random random = new Random();
 
-        Paikka p = new Paikka(1, 1);
+//        Paikka p = new Paikka(1, 1);
 
         Sokkelo s = new Sokkelo(random);
 
