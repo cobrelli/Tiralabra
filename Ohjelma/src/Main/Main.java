@@ -25,30 +25,44 @@ public class Main {
 
         Sokkelo s = new Sokkelo(random);
 
+//        double bf1 = System.currentTimeMillis();
         BruteForce bf = new BruteForce();
+//        double bf2 = System.currentTimeMillis();
 
-        int[][] toka = s.teeSokkelo(5, 5);
+        int[][] toka = s.teeSokkelo(3000,3000);
 //        tulosta(toka);
+        
 //        double luku = System.currentTimeMillis();
 //        int pituus = bf.AjaBruteForce(toka, random);
 //        double luku2 = System.currentTimeMillis();
-
-//        tulosta(toka);
-
-//        System.out.println("asd " + (luku2-luku));
+////
+//////        tulosta(toka);
+////
+//        System.out.println("BruteForce " + (luku2 - luku));
 //        System.out.println(pituus);
+//
+//        System.out.println();
 //        
-//        System.out.println("bellman");
 //        BellmanFord bell = new BellmanFord();
-//        bell.ratkaiseSokkelo(toka);
 //        
-//        tulosta(toka);
-
+//        double bell1 = System.currentTimeMillis();
+//        int pituusBell = bell.ratkaiseSokkelo(toka);
+//        double bell2 = System.currentTimeMillis();
+//
+//        System.out.println("bellman " + (bell2-bell1));
+//        System.out.println(pituusBell);
+//
+//        System.out.println();
         Dijkstra d = new Dijkstra();
+        
+        double D1 = System.currentTimeMillis();
         int pituusD = d.ratkaiseSokkelo(toka);
+        double D2 = System.currentTimeMillis();
+        
+        System.out.println("Dijkstra " + (D2-D1));
         System.out.println(pituusD);
 
-        tulosta(toka);
+//        tulosta(toka);
     }
 
     /**
