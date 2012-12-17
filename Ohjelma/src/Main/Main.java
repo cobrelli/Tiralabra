@@ -46,6 +46,7 @@ public class Main {
         
         Dijkstra d = new Dijkstra();
         int pituusD = d.ratkaiseSokkelo(toka);
+        System.out.println(pituusD);
     }
 
     /**
