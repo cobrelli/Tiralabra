@@ -27,14 +27,14 @@ public class Main {
 
         BruteForce bf = new BruteForce();
 
-        int[][] toka = s.teeSokkelo(3, 3);
+        int[][] toka = s.teeSokkelo(5, 5);
 //        tulosta(toka);
 //        double luku = System.currentTimeMillis();
 //        int pituus = bf.AjaBruteForce(toka, random);
 //        double luku2 = System.currentTimeMillis();
-        
+
 //        tulosta(toka);
-        
+
 //        System.out.println("asd " + (luku2-luku));
 //        System.out.println(pituus);
 //        
@@ -43,10 +43,12 @@ public class Main {
 //        bell.ratkaiseSokkelo(toka);
 //        
 //        tulosta(toka);
-        
+
         Dijkstra d = new Dijkstra();
         int pituusD = d.ratkaiseSokkelo(toka);
         System.out.println(pituusD);
+
+        tulosta(toka);
     }
 
     /**
@@ -55,10 +57,15 @@ public class Main {
      */
     public static void tulosta(int[][] s) {
         for (int i = 0; i < s.length; i++) {
-            for (int n = 0; n < s.length; n++) {
+            for (int n = 0; n < s[0].length; n++) {
                 System.out.print(s[i][n]);
             }
             System.out.println();
         }
     }
+    public static int[][] s1 = {{0, 1, 0, 0, 0},
+        {0, 1, 0, 1, 0},
+        {0, 1, 0, 1, 0},
+        {0, 1, 0, 1, 0},
+        {0, 0, 0, 1, 0}};
 }

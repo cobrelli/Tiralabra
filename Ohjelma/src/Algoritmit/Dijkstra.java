@@ -35,7 +35,8 @@ public class Dijkstra {
 
     public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
             Paikka p, int y, int x) {
-        if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length) {
+        if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
+                sokkelo[y][x] == 1) {
             return;
         }
 
