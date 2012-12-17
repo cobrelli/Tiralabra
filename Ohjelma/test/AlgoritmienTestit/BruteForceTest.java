@@ -18,9 +18,15 @@ public class BruteForceTest {
     Sokkelo s;
     Random r;
     
+    /**
+     * Konstruktori
+     */
     public BruteForceTest() {
     }
     
+    /**
+     * Asettaa alkutilanteen ja alustaa käytetyt oliot
+     */
     @Before
     public void setUp() {
         bf = new BruteForce();
@@ -28,6 +34,10 @@ public class BruteForceTest {
         s = new Sokkelo(r);
     }
     
+    /**
+     * Testaa ettei 3x3 reitillä ole mahdollista saada parempaa kuin oikeasti
+     * pienintä mahdollista reittiä.
+     */
     @Test
     public void testaaEtteiReitinPituusOlePienempiKuinEtaisyys(){
         int[][] sokkelo = s.teeSokkelo(3, 3);
@@ -41,6 +51,9 @@ public class BruteForceTest {
         assertFalse(onkoPienempi);
     }
     
+    /**
+     * Testaa että reitin pituus lasketaan oikein.
+     */
     @Test
     public void testaaEtteiReitinPituusOlePienempiKuinEtaisyysYhdenkorkuisella(){
         int[][] sokkelo = s.teeSokkelo(10, 1);
