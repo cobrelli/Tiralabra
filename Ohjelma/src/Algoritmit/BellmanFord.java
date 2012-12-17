@@ -75,11 +75,12 @@ public class BellmanFord {
     }
 
     /**
-     *
-     * @param s
-     * @param y
-     * @param x
-     * @return
+     * Tarkistaa onko määritelty paikka sokkelossa validi. Eli voidaanko tänne
+     * siirtyä.
+     * @param s         Antaa testille sokkelon josta tarkistetaan.
+     * @param y         Kertoo tarkistettavan kohdan y-akselilla.
+     * @param x         Kertoo tarkistettavan kohdan x-akselilla.
+     * @return          Palauttaa false jos siirto ei validi, true jos on.
      */
     private boolean onkoValidi(int[][] s, int y, int x) {
         if (y > s.length - 1 || y < 0 || x < 0 || x > s[0].length - 1 || s[y][x] == 1) {
@@ -89,12 +90,13 @@ public class BellmanFord {
     }
 
     /**
-     *
-     * @param lapiKaytava
-     * @param y
-     * @param x
-     * @param yKohde
-     * @param xKohde
+     * Relaksoi annetun kohdan. Eli tarkistaa onko siirto lyhyempi kuin edelliset
+     * löydetyt reitit. Jos on niin merkitsee uuden pituuden.
+     * @param lapiKaytava       Antaa tarkasteltavan sokkelon matriisiesityksen.
+     * @param y                 Antaa tarkasteltavan sijainnin y -akselilla.
+     * @param x                 Antaa tarkasteltavan sijainnin x -akselilla.
+     * @param yKohde            Antaa uuden mahdollisen reitin kohdan y-akselilla.
+     * @param xKohde            Antaa uuden mahdollisen reitin kohdan x-akselilla.
      */
     private void relax(int[][] lapiKaytava, int y, int x, int yKohde, int xKohde) {
         if ((lapiKaytava[y][x] + 1) < lapiKaytava[yKohde][xKohde]) {
