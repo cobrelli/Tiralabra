@@ -10,7 +10,6 @@ public class Paikka implements Comparable<Paikka> {
     private int y;
     private int x;
     private int etaisyys;
-    
     /**
      * Paikkaluokan konstruktori, joka saa arvot y ja x
      * @param y kertoo paikan y akselilla matriisissa
@@ -44,7 +43,7 @@ public class Paikka implements Comparable<Paikka> {
     public void setEtaisyys(int etaisyys){
         this.etaisyys = etaisyys;
     }
-    
+        
     @Override
     public int compareTo(Paikka o) {
         if(this.etaisyys == o.etaisyys){

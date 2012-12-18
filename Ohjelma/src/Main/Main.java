@@ -1,5 +1,6 @@
 package Main;
 
+import Algoritmit.AStar;
 import Algoritmit.BellmanFord;
 import Algoritmit.BruteForce;
 import Algoritmit.Dijkstra;
@@ -29,7 +30,7 @@ public class Main {
         BruteForce bf = new BruteForce();
 //        double bf2 = System.currentTimeMillis();
 
-        int[][] toka = s.teeSokkelo(3000,3000);
+        int[][] toka = s.teeSokkelo(30,30);
 //        tulosta(toka);
         
 //        double luku = System.currentTimeMillis();
@@ -52,7 +53,7 @@ public class Main {
 //        System.out.println("bellman " + (bell2-bell1));
 //        System.out.println(pituusBell);
 //
-//        System.out.println();
+        System.out.println();
         Dijkstra d = new Dijkstra();
         
         double D1 = System.currentTimeMillis();
@@ -62,6 +63,14 @@ public class Main {
         System.out.println("Dijkstra " + (D2-D1));
         System.out.println(pituusD);
 
+        AStar a = new AStar();
+        
+        double A1 = System.currentTimeMillis();
+        int pituusA = a.ratkaiseSokkelo(toka);
+        double A2 = System.currentTimeMillis();
+        
+        System.out.println("AStar " + (A2-A1));
+        System.out.println(pituusA);
 //        tulosta(toka);
     }
 
