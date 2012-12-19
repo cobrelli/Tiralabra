@@ -40,8 +40,8 @@ public class BruteForceTest {
      */
     @Test
     public void testaaEtteiReitinPituusOlePienempiKuinEtaisyys(){
-        int[][] sokkelo = s.teeSokkelo(3, 3);
-        int koko = bf.AjaBruteForce(sokkelo, r);
+        int[][] sokkelo = s.teeSokkelo(3, 3,2,2);
+        int koko = bf.AjaBruteForce(sokkelo, r,s.getY(),s.getX());
         
         boolean onkoPienempi = false;
         if(koko<4){
@@ -56,8 +56,8 @@ public class BruteForceTest {
      */
     @Test
     public void testaaEtteiReitinPituusOlePienempiKuinEtaisyysYhdenkorkuisella(){
-        int[][] sokkelo = s.teeSokkelo(10, 1);
-        int koko = bf.AjaBruteForce(sokkelo, r);
+        int[][] sokkelo = s.teeSokkelo(10, 1,9,0);
+        int koko = bf.AjaBruteForce(sokkelo, r,s.getY(),s.getX());
         
         boolean onkoPienempi = false;
         if(koko<9){

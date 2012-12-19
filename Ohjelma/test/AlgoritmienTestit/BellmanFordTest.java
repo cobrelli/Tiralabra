@@ -36,7 +36,7 @@ public class BellmanFordTest {
      */
     @Test
     public void testaaEttaPituusEiOleLyhyempiiKuinPitaisi(){
-        int pituus = bf.ratkaiseSokkelo(s.teeSokkelo(3, 3));
+        int pituus = bf.ratkaiseSokkelo(s.teeSokkelo(3, 3,2,2),s.getY(),s.getX());
         boolean onkoLiianLyhyt = (pituus>=4);
         assertTrue(onkoLiianLyhyt);
     }
@@ -46,7 +46,7 @@ public class BellmanFordTest {
      */
     @Test
     public void testaaPituuttaHelpolla(){
-        int pituus = bf.ratkaiseSokkelo(s.teeSokkelo(1, 5));
+        int pituus = bf.ratkaiseSokkelo(s.teeSokkelo(1, 5,0,4),s.getY(),s.getX());
         assertEquals(4, pituus);
     }
     

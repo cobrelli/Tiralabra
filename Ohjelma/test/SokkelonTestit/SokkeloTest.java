@@ -41,7 +41,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaGeneroituSokkeloEiTuotaSeiniaAlkuun() {
-        int[][] t = s.teeSokkelo(5, 5);
+        int[][] t = s.teeSokkelo(5, 5,4,4);
         assertEquals(0, t[0][0]);
     }
 
@@ -50,7 +50,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaGeneroituSokkeloEiTuotaSeiniaLoppuun() {
-        int[][] t = s.teeSokkelo(5, 5);
+        int[][] t = s.teeSokkelo(5, 5,4,4);
         assertEquals(0, t[4][4]);
     }
 
@@ -59,7 +59,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaLuotusSokkeloOnOikeanKorkuinen() {
-        int[][] t = s.teeSokkelo(5, 5);
+        int[][] t = s.teeSokkelo(5, 5,4,4);
         assertEquals(5, t.length);
     }
 
@@ -68,7 +68,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaLuotusSokkeloOnOikeanLevyinen() {
-        int[][] t = s.teeSokkelo(5, 5);
+        int[][] t = s.teeSokkelo(5, 5,4,4);
         assertEquals(5, t[0].length);
     }
 
@@ -78,7 +78,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaPalautettavaPieniSokkeloPalauttaaTrue() {
-        int[][] t = s.teeSokkelo(3, 3);
+        int[][] t = s.teeSokkelo(3, 3,2,2);
 
         assertTrue(s.getOnkoLapaistava());
     }
@@ -89,7 +89,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaPalautettavaSuuriSokkeloPalauttaaTrue() {
-        int[][] t = s.teeSokkelo(160, 160);
+        int[][] t = s.teeSokkelo(160, 160,159,159);
 
         assertTrue(s.getOnkoLapaistava());
     }
@@ -102,7 +102,7 @@ public class SokkeloTest {
         boolean lapaistavyys = false;
         
         for(int i = 0;i<10;i++){
-            int[][] t = s.teeSokkelo(160, 160);
+            int[][] t = s.teeSokkelo(160, 160,159,159);
             lapaistavyys = s.getOnkoLapaistava();
             if(!lapaistavyys){
                 break;
@@ -117,7 +117,7 @@ public class SokkeloTest {
      */
     @Test
     public void testaaEttaJoGeneroituSokkeloOnMahdollistaLapaista() {
-        int[][] t = s.teeSokkelo(5, 5);
+        int[][] t = s.teeSokkelo(5, 5,4,4);
     
         testaaSokkelo(t, 0, 0);
         
