@@ -17,6 +17,8 @@ import java.util.Stack;
  */
 public class Sokkelo {
 
+    int loppuY;
+    int loppuX;
     Random r;
     private boolean onkoLapaistavissa;
 
@@ -26,8 +28,16 @@ public class Sokkelo {
      */
     public Sokkelo(Random random) {
         r = random;
+        
     }
 
+    public int getY(){
+        return this.loppuY;
+    }
+    public int getX(){
+        return this.loppuX;
+    }
+    
     /**
      *
      * @return palauttaa viimeisimmän luodun sokkelon lapaistavyyden
@@ -46,15 +56,17 @@ public class Sokkelo {
      * @param leveys kertoo matriisin leveys
      * @return palauttaa ratkaistavissa olevan sokkelon matriisina
      */
-    public int[][] teeSokkelo(int korkeus, int leveys) {
+    public int[][] teeSokkelo(int korkeus, int leveys, int y, int x) {
         int[][] sokkelo = new int[korkeus][leveys];
         int[][] testattava = new int[korkeus][leveys];
         generoiSokkelo(korkeus, leveys, sokkelo, testattava);
+        this.loppuX = x;
+        this.loppuY = y;
 
         onkoLapaistavissa = testaaSokkeloIteratiivisellaDFS(testattava);
 
         if (!onkoLapaistavissa) {
-            return teeSokkelo(korkeus, leveys);
+            return teeSokkelo(korkeus, leveys, loppuY, loppuX);
         }
 
         return sokkelo;
@@ -83,7 +95,7 @@ public class Sokkelo {
             Paikka p = s.pop();
             sokkelo[p.getY()][p.getX()] = 1;
             
-            if(p.getX() == sokkelo[0].length-1 && p.getY() == sokkelo.length-1){
+            if(p.getX() == loppuX && p.getY() == loppuY){
                 return true;
             }
             
@@ -148,7 +160,7 @@ public class Sokkelo {
         for (int i = 0; i < korkeus; i++) {
             for (int n = 0; n < leveys; n++) {
                 double luku = r.nextDouble();
-                if (i == 0 && n == 0 || i == korkeus - 1 && n == leveys - 1) {
+                if (i == 0 && n == 0 || i == loppuY && n == loppuX) {
                     sokkelo[i][n] = 0;
                     testattava[i][n] = 0;
                 } else {
