@@ -29,6 +29,8 @@ public class BruteForce {
      * @param sokkelo       On sokkelo johon algoritmia lähdetään ajamaan.
      * @param random        Random oliolla saadaan satunnaisuus mukaan, jolloin
      *                      liikutaan satunnaisesti johonkin suuntaan.
+     * @param loppuY        Kertoo lopetuspaikan sijainnin y -akselilla.
+     * @param loppuX        Kertoo lopetuspaikan sijainnin x -akselilla.
      * @return              Palauttaa reitin kokonaispituuden.
      */
     public int AjaBruteForce(int[][] sokkelo, Random random, int loppuY, int loppuX) {

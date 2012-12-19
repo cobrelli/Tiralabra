@@ -24,7 +24,9 @@ public class BellmanFord {
      * seinä sitä ei käsitellä ollenkaan. Viimeistä solmua ei myöskään
      * käsitellä.
      *
-     * @param sokkelo Antaa tutkittavan sokkelon matriisina.
+     * @param sokkelo       Antaa tutkittavan sokkelon matriisina.
+     * @param loppuY        Kertoo lopetuspaikan sijainnin y -akselilla.
+     * @param loppuX        Kertoo lopetuspaikan sijainnin x -akselilla.
      * @return Palauttaa löydetyn reitin pituuden.
      */
     public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {

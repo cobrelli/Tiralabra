@@ -11,7 +11,8 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
- *
+ * A* algoritmi, joka ratkaisee annetun sokkelon. Oletetaan että sokkelo on
+ * läpäistävissä, eli lopetuspisteeseen on mahdollista päästä.
  * @author Cobrelli
  */
 public class AStar {
@@ -19,9 +20,19 @@ public class AStar {
     int loppuY;
     int loppuX;
     
+    /**
+     * Konstruktori
+     */
     public AStar(){
     }
     
+    /**
+     * Kutsuu AStar oliota ratkaisemaan annetun sokkelo.
+     * @param sokkelo       Antaa metodille ratkaistavan sokkelon.
+     * @param loppuY        Kertoo lopetuspisteen paikan Y -akselilla.
+     * @param loppuX        Kertoo lopetuspisteen paikan X -akselilla.
+     * @return              Palauttaa lyhimmän reitin pituuden.
+     */
     public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {
 
         this.loppuX = loppuX;
@@ -55,6 +66,18 @@ public class AStar {
 
     }
 
+    /**
+     * Relaksoi halutun paikan. Aluksi tarkistaa että kaari on validi. Tämän
+     * jälkeen vertaa nykyisen etäisyyttä verrattavaan, jos löydetty reitti on
+     * lyhyempi kuin vanha niin reitti asetetaan vanhan tilalle.
+     * @param sokkelo       Antaa relaksointia varten tutkittavan sokkelon.
+     * @param q             Antaa viitteen käytössä olevaan kekoon.
+     * @param paikat        Antaa viitteen matriisiin, johon paikan on tallennettu.
+     * @param p             Antaa viitteen yksittäiseen paikkaolioon, jota vertaillaan.
+     * @param y             Tutkittavan paikan sijainti y -akselilla.
+     * @param x             Tutkittavan paikan sijainti x -akselilla.
+     * @param kaydyt        Hajautustaulu jo käydyistä sijainneista.
+     */
     public void relax(int[][] sokkelo, PriorityQueue<PaikkaAStar> q, PaikkaAStar[][] paikat,
             PaikkaAStar p, int y, int x, Set kaydyt) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
@@ -79,6 +102,14 @@ public class AStar {
         }
     }
     
+    /**
+     * Algoritmin heuristiikkaa. Metodi arvioi etaisyyden nykyisestä sijainnista
+     * loppupisteeseen.
+     * @param sokkelo       Antaa viitteen tutkittavaan sokkeloon.
+     * @param y             Sijainti y -akselilla.
+     * @param x             Sijainti x -akselilla.
+     * @return              Palauttaa arvioidun etäisyyden Integerinä.
+     */
     public int arvioiEtaisyys(int[][] sokkelo, int y, int x){
         int etaisyys = (loppuY-y)+(loppuX-x);
         return etaisyys;

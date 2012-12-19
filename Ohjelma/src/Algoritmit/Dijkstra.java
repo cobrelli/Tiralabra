@@ -3,7 +3,7 @@ package Algoritmit;
 import java.util.PriorityQueue;
 
 /**
- *
+ * Dijkstran algoritmi. Tutkii lyhimmän etäisyyden käyttäen hyväksi minimikekoa.
  * @author Cobrelli
  */
 public class Dijkstra {
@@ -11,9 +11,25 @@ public class Dijkstra {
     int loppuY;
     int loppuX;
     
+    /**
+     * Konstruktori.
+     */
     public Dijkstra() {
     }
 
+    /**
+     * Metodi ratkaisesokkelo aloittaa sokkelon lyhimmän reitin pituuden tutkimisen.
+     * Aluksi se alustaa aloituspisteen ja lisää sen paikka matriisiin ja kekoon.
+     * Tämän jälkeen se aloittaa looppaamaan matriisia läpi niin kauan kunnes
+     * haluttu paikka löytyy tai keko on tyhjä, eli reittiä ei löytynyt.
+     * Algoritmi ottaa keosta lähimmän paikan ja relaksoi sen kaikki naapurit.
+     * 
+     * @param sokkelo       Antaa algoritmille viitteen tutkittavaan sokkeloon.
+     * @param loppuY        Kertoo lopetuspaikan sijainnin y -akselilla.
+     * @param loppuX        Kertoo lopetuspaikan sijainnin x -akselilla.
+     * @return              Palauttaa lyhimmän reitin jos maali on löytynyt, ja
+     *                      palauttaa nollan jos paikkaa ei ole löytynyt.
+     */
     public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {
 
         this.loppuY = loppuY;
@@ -43,6 +59,15 @@ public class Dijkstra {
 
     }
 
+    /**
+     *
+     * @param sokkelo
+     * @param q
+     * @param paikat
+     * @param p
+     * @param y
+     * @param x
+     */
     public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
             Paikka p, int y, int x) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
