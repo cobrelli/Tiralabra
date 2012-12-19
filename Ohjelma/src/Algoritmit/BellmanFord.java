@@ -8,6 +8,9 @@ package Algoritmit;
  */
 public class BellmanFord {
 
+    int loppuY;
+    int loppuX;
+    
     /**
      * Konstruktori
      */
@@ -24,8 +27,11 @@ public class BellmanFord {
      * @param sokkelo Antaa tutkittavan sokkelon matriisina.
      * @return Palauttaa löydetyn reitin pituuden.
      */
-    public int ratkaiseSokkelo(int[][] sokkelo) {
+    public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {
 
+        this.loppuY = loppuY;
+        this.loppuX = loppuX;
+        
         int[][] lapiKaytava = new int[sokkelo.length][sokkelo[0].length];
 
         for (int i = 0; i < sokkelo.length; i++) {
@@ -37,13 +43,14 @@ public class BellmanFord {
             }
         }
 
+        int lapikaynnit = Math.max(sokkelo[0].length-1, sokkelo.length-1);
         lapiKaytava[0][0] = 0;
 
-        for (int kierros = 0; kierros < sokkelo.length-1; kierros++) {
+        for (int kierros = 0; kierros < lapikaynnit; kierros++) {
             for (int i = 0; i < sokkelo.length; i++) {
                 for (int n = 0; n < sokkelo[0].length; n++) {
                     if (sokkelo[i][n] != 1) {
-                        if (i == sokkelo.length - 1 && n == sokkelo[0].length - 1) {
+                        if (i == loppuY && n == loppuX) {
                         } else {
                             TutkiKaikkiKaaret(sokkelo, lapiKaytava, i, n);
                         }
@@ -52,7 +59,7 @@ public class BellmanFord {
             }
         }
 
-        return lapiKaytava[lapiKaytava.length - 1][lapiKaytava[0].length - 1];
+        return lapiKaytava[loppuY][loppuX];
     }
 
     /**

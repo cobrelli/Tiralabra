@@ -9,6 +9,9 @@ import java.util.Random;
  */
 public class BruteForce {
 
+    int loppuY;
+    int loppuX;
+    
     /**
      * Konstruktoi uuden BruteForce luokan jolla voidaan ajaa erilaisia sokkeloita
      * lävitse ja tarkastella selvitysten nopeutta.
@@ -28,7 +31,11 @@ public class BruteForce {
      *                      liikutaan satunnaisesti johonkin suuntaan.
      * @return              Palauttaa reitin kokonaispituuden.
      */
-    public int AjaBruteForce(int[][] sokkelo, Random random) {
+    public int AjaBruteForce(int[][] sokkelo, Random random, int loppuY, int loppuX) {
+        
+        this.loppuY = loppuY;
+        this.loppuX = loppuX;
+        
         int kokonaisPituus = 0;
 
         int y = 0;
@@ -60,7 +67,7 @@ public class BruteForce {
                 }
             }
             
-            if(x == sokkelo[0].length-1 && y == sokkelo.length-1){
+            if(x == loppuX && y == loppuY){
                 break;
             }
             

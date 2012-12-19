@@ -8,11 +8,17 @@ import java.util.PriorityQueue;
  */
 public class Dijkstra {
 
+    int loppuY;
+    int loppuX;
+    
     public Dijkstra() {
     }
 
-    public int ratkaiseSokkelo(int[][] sokkelo) {
+    public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {
 
+        this.loppuY = loppuY;
+        this.loppuX = loppuX;
+        
         PriorityQueue<Paikka> q = new PriorityQueue<>();
         Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
 
@@ -23,13 +29,17 @@ public class Dijkstra {
 
             Paikka lahin = q.remove();
 
+            if(lahin.getY() == loppuY && lahin.getX() == loppuX){
+                return paikat[loppuY][loppuX].getEtaisyys();
+            }
+            
             relax(sokkelo, q, paikat, lahin, lahin.getY() + 1, lahin.getX());
             relax(sokkelo, q, paikat, lahin, lahin.getY(), lahin.getX() + 1);
             relax(sokkelo, q, paikat, lahin, lahin.getY() - 1, lahin.getX());
             relax(sokkelo, q, paikat, lahin, lahin.getY(), lahin.getX() - 1);
         }
 
-        return paikat[sokkelo.length-1][sokkelo[0].length-1].getEtaisyys();
+        return paikat[loppuY][loppuX].getEtaisyys();
 
     }
 
