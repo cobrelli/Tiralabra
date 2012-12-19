@@ -38,18 +38,18 @@ public class AStar {
         this.loppuX = loppuX;
         this.loppuY = loppuY;
         
-        PriorityQueue<PaikkaAStar> q = new PriorityQueue<>();
-        PaikkaAStar[][] paikat = new PaikkaAStar[sokkelo.length][sokkelo[0].length];
+        PriorityQueue<Paikka> q = new PriorityQueue<>();
+        Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
 //        List<PaikkaAStar> kaydyt = new LinkedList();
-        Set<PaikkaAStar> kaydyt = new HashSet();
+        Set<Paikka> kaydyt = new HashSet();
         
-        paikat[0][0] = new PaikkaAStar(0, 0, 0);
+        paikat[0][0] = new Paikka(0, 0, 0);
         paikat[0][0].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, 0, 0));
         q.add(paikat[0][0]);
         
         while (!q.isEmpty()) {
 
-            PaikkaAStar lahin = q.remove();
+            Paikka lahin = q.remove();
             kaydyt.add(lahin);
             
             if(lahin.getY() == loppuY && lahin.getX() == loppuX){
@@ -78,8 +78,8 @@ public class AStar {
      * @param x             Tutkittavan paikan sijainti x -akselilla.
      * @param kaydyt        Hajautustaulu jo käydyistä sijainneista.
      */
-    public void relax(int[][] sokkelo, PriorityQueue<PaikkaAStar> q, PaikkaAStar[][] paikat,
-            PaikkaAStar p, int y, int x, Set kaydyt) {
+    public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
+            Paikka p, int y, int x, Set kaydyt) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
                 sokkelo[y][x] == 1 || kaydyt.contains(paikat[y][x])) {
             return;
@@ -88,7 +88,7 @@ public class AStar {
         int uusiEtaisyys = p.getEtaisyys() + 1;
         
         if(paikat[y][x] == null){
-            paikat[y][x] = new PaikkaAStar(y, x, uusiEtaisyys);
+            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
             paikat[y][x].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, y, x));
             q.add(paikat[y][x]);
             return;
@@ -97,7 +97,7 @@ public class AStar {
         int vanhaEtaisyys = paikat[y][x].getEtaisyys();
         if(uusiEtaisyys<vanhaEtaisyys){
             q.remove(paikat[y][x]);
-            paikat[y][x] = new PaikkaAStar(y, x, uusiEtaisyys);
+            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
             q.add(paikat[y][x]);
         }
     }
