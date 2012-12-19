@@ -31,10 +31,18 @@ public class Sokkelo {
         
     }
 
-    public int getY(){
+    /**
+     * Getteri
+     * @return          Palauttaa lopetuspaikan pisteen Y -akselilla.
+     */
+    public int getLoppuY(){
         return this.loppuY;
     }
-    public int getX(){
+    /**
+     * Getteri
+     * @return          Palauttaa lopetuspaikan pisteen X -akselilla.
+     */
+    public int getLoppuX(){
         return this.loppuX;
     }
     
@@ -52,16 +60,18 @@ public class Sokkelo {
      * onko se yleensä mahdollista ratkaista, jos ei niin generoi uuden sokkelon
      * niin kauan kunnes sokkelo on ratkaistavissa.
      *
-     * @param korkeus kertoo matriisin korkeuden
-     * @param leveys kertoo matriisin leveys
+     * @param korkeus       kertoo matriisin korkeuden
+     * @param leveys        kertoo matriisin leveys
+     * @param loppuY        kertoo loppu pisteen paikan y -akselilla.
+     * @param loppuX        kertoo loppu pisteen paikan x -akselilla.
      * @return palauttaa ratkaistavissa olevan sokkelon matriisina
      */
-    public int[][] teeSokkelo(int korkeus, int leveys, int y, int x) {
+    public int[][] teeSokkelo(int korkeus, int leveys, int loppuY, int loppuX) {
         int[][] sokkelo = new int[korkeus][leveys];
         int[][] testattava = new int[korkeus][leveys];
         generoiSokkelo(korkeus, leveys, sokkelo, testattava);
-        this.loppuX = x;
-        this.loppuY = y;
+        this.loppuX = loppuX;
+        this.loppuY = loppuY;
 
         onkoLapaistavissa = testaaSokkeloIteratiivisellaDFS(testattava);
 

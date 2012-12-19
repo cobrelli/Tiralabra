@@ -12,8 +12,9 @@ public class Paikka implements Comparable<Paikka> {
     private int etaisyys;
     /**
      * Paikkaluokan konstruktori, joka saa arvot y ja x
-     * @param y kertoo paikan y akselilla matriisissa
-     * @param x kertoo paikan x akselilla matriisissa
+     * @param y             kertoo paikan y akselilla matriisissa
+     * @param x             kertoo paikan x akselilla matriisissa
+     * @param etaisyys      kertoo paikan etäisyyden alkupisteestä.
      */
     public Paikka(int y, int x, int etaisyys){
         this.x = x;
@@ -36,10 +37,18 @@ public class Paikka implements Comparable<Paikka> {
         return this.x;
     }
 
+    /**
+     * Getteri
+     * @return palauttaa etaisyyden alkupisteeseen.
+     */
     public int getEtaisyys(){
         return this.etaisyys;
     }
     
+    /**
+     * Setteri, asettaa uuden etäisyyden alkupisteeseen.
+     * @param etaisyys      Kertoo uuden etäisyyden.
+     */
     public void setEtaisyys(int etaisyys){
         this.etaisyys = etaisyys;
     }

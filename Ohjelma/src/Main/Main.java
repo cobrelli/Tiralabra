@@ -33,7 +33,7 @@ public class Main {
 //        tulosta(toka);
 
         double luku = System.currentTimeMillis();
-        int pituus = bf.AjaBruteForce(toka, random, s.getY(), s.getX());
+        int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
         double luku2 = System.currentTimeMillis();
 //
 ////        tulosta(toka);
@@ -46,7 +46,7 @@ public class Main {
         BellmanFord bell = new BellmanFord();
 
         double bell1 = System.currentTimeMillis();
-        int pituusBell = bell.ratkaiseSokkelo(toka, s.getY(), s.getX());
+        int pituusBell = bell.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
         double bell2 = System.currentTimeMillis();
 
         System.out.println("bellman " + (bell2 - bell1));
@@ -56,7 +56,7 @@ public class Main {
         Dijkstra d = new Dijkstra();
 
         double D1 = System.currentTimeMillis();
-        int pituusD = d.ratkaiseSokkelo(toka, s.getY(), s.getX());
+        int pituusD = d.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
         double D2 = System.currentTimeMillis();
 
         System.out.println("Dijkstra " + (D2 - D1));
@@ -65,7 +65,7 @@ public class Main {
         AStar a = new AStar();
 
         double A1 = System.currentTimeMillis();
-        int pituusA = a.ratkaiseSokkelo(toka, s.getY(), s.getX());
+        int pituusA = a.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
         double A2 = System.currentTimeMillis();
 
         System.out.println("AStar " + (A2 - A1));
@@ -86,11 +86,17 @@ public class Main {
             System.out.println();
         }
     }
+    /**
+     *
+     */
     public static int[][] s1 = {{0, 1, 0, 0, 0},
         {0, 1, 0, 1, 0},
         {0, 1, 0, 1, 0},
         {0, 1, 0, 1, 0},
         {0, 0, 0, 1, 0}};
+    /**
+     *
+     */
     public static int[][] s2 = {{0, 0, 0, 0, 0},
         {0, 0, 0, 1, 0},
         {0, 0, 1, 0, 0},

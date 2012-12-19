@@ -16,8 +16,9 @@ public class PaikkaAStar implements Comparable<PaikkaAStar> {
     /**
      * Paikkaluokan konstruktori, joka saa arvot y ja x
      *
-     * @param y kertoo paikan y akselilla matriisissa
-     * @param x kertoo paikan x akselilla matriisissa
+     * @param y             kertoo paikan y akselilla matriisissa
+     * @param x             kertoo paikan x akselilla matriisissa
+     * @param etaisyys      kertoo etäisyyden aloituspisteeseen.
      */
     public PaikkaAStar(int y, int x, int etaisyys) {
         this.x = x;
@@ -43,18 +44,34 @@ public class PaikkaAStar implements Comparable<PaikkaAStar> {
         return this.x;
     }
 
+    /**
+     * Getteri
+     * @return      Palauttaa etäisyyden aloituspisteeseen.
+     */
     public int getEtaisyys() {
         return this.etaisyys;
     }
 
+    /**
+     * Setteri, asettaa uuden etäisyyden alkupisteeseen.
+     * @param etaisyys      Uusi etäisyys alkuun.
+     */
     public void setEtaisyys(int etaisyys) {
         this.etaisyys = etaisyys;
     }
 
+    /**
+     * Setteri, asettaa uuden etäisyyden maaliin.
+     * @param uusi          Uusi etäisyys maaliin.
+     */
     public void setEtaisyysloppuun(int uusi) {
         this.etaisyysLoppuun = uusi;
     }
 
+    /**
+     * Getteri
+     * @return      Palauttaa etäisyyden loppuun.
+     */
     public int getEtaisyysLoppuun() {
         return this.etaisyysLoppuun;
     }

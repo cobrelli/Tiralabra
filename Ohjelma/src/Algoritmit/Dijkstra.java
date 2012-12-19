@@ -60,13 +60,14 @@ public class Dijkstra {
     }
 
     /**
-     *
-     * @param sokkelo
-     * @param q
-     * @param paikat
-     * @param p
-     * @param y
-     * @param x
+     * Relaksoi halutun paikan.
+     * @param sokkelo       Antaa viitteen tutkittavaan olioon.
+     * @param q             Antaa viitteen kekoon, johon lähimmät talletetaan.
+     * @param paikat        Antaa viitteen matriisiin, joka sisältää paikat.
+     * @param p             Antaa viitteen paikkaan josta lähdettiin nykyistä kohtaa
+     *                      tutkimaan.
+     * @param y             Kertoo tutkittavan paikan sijainnin y -akselilla.
+     * @param x             Kertoo tutkittavan paikan sijainnin x -akselilla.
      */
     public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
             Paikka p, int y, int x) {
