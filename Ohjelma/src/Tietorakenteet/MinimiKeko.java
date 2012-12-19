@@ -4,6 +4,8 @@
  */
 package Tietorakenteet;
 
+import Algoritmit.Paikka;
+
 /**
  *
  * @author Cobrelli
@@ -11,9 +13,15 @@ package Tietorakenteet;
 public class MinimiKeko {
 
     int heapSize;
-    int[] alkiot;
+    Paikka[] alkiot;
     
-    public MinimiKeko() {
+    public MinimiKeko(int koko) {
+        this.alkiot = new Paikka[koko];
+        this.heapSize = 0;
+    }
+    
+    public void minHeapify(){
+        
     }
 
     public int getLength(){
