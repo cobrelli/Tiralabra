@@ -24,6 +24,7 @@ public class PaikkaAStar implements Comparable<PaikkaAStar> {
         this.x = x;
         this.y = y;
         this.etaisyys = etaisyys;
+        this.etaisyysLoppuun = 0;
     }
 
     /**
