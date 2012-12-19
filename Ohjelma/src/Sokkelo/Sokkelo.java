@@ -1,6 +1,7 @@
 package Sokkelo;
 
 import Algoritmit.Paikka;
+import Tietorakenteet.Pino;
 import java.util.Random;
 import java.util.Stack;
 
@@ -24,34 +25,13 @@ public class Sokkelo {
 
     /**
      * Konstruktori alustaa Randomin
-     * @param random    Alustaa käytettävän randomin parametrina annetulla randomilla
+     *
+     * @param random Alustaa käytettävän randomin parametrina annetulla
+     * randomilla
      */
     public Sokkelo(Random random) {
         r = random;
-        
-    }
 
-    /**
-     * Getteri
-     * @return          Palauttaa lopetuspaikan pisteen Y -akselilla.
-     */
-    public int getLoppuY(){
-        return this.loppuY;
-    }
-    /**
-     * Getteri
-     * @return          Palauttaa lopetuspaikan pisteen X -akselilla.
-     */
-    public int getLoppuX(){
-        return this.loppuX;
-    }
-    
-    /**
-     *
-     * @return palauttaa viimeisimmän luodun sokkelon lapaistavyyden
-     */
-    public boolean getOnkoLapaistava() {
-        return this.onkoLapaistavissa;
     }
 
     /**
@@ -60,10 +40,10 @@ public class Sokkelo {
      * onko se yleensä mahdollista ratkaista, jos ei niin generoi uuden sokkelon
      * niin kauan kunnes sokkelo on ratkaistavissa.
      *
-     * @param korkeus       kertoo matriisin korkeuden
-     * @param leveys        kertoo matriisin leveys
-     * @param loppuY        kertoo loppu pisteen paikan y -akselilla.
-     * @param loppuX        kertoo loppu pisteen paikan x -akselilla.
+     * @param korkeus kertoo matriisin korkeuden
+     * @param leveys kertoo matriisin leveys
+     * @param loppuY kertoo loppu pisteen paikan y -akselilla.
+     * @param loppuX kertoo loppu pisteen paikan x -akselilla.
      * @return palauttaa ratkaistavissa olevan sokkelon matriisina
      */
     public int[][] teeSokkelo(int korkeus, int leveys, int loppuY, int loppuX) {
@@ -90,51 +70,53 @@ public class Sokkelo {
      * apumetodia puskeMahdollisetLiikkeetPinoon().
      *
      * @param sokkelo on testattava aiemmin generoitu sokkelo
-     * @return      Palauttaa true jos läpäistävissä, false jos ei. 
+     * @return Palauttaa true jos läpäistävissä, false jos ei.
      */
     private boolean testaaSokkeloIteratiivisellaDFS(int[][] sokkelo) {
 
-        Stack<Paikka> s = new Stack<>();
+//        Stack<Paikka> s = new Stack<>();
+        Pino s = new Pino(sokkelo.length*sokkelo[0].length);
         int y = 0;
         int x = 0;
-        
+
         puskeMahdollisetLiikkeetPinoon(sokkelo, 0, 0, s);
-        
-        while (!s.isEmpty()) {
-            
+
+        while (!s.tyhja()) {
+
             Paikka p = s.pop();
             sokkelo[p.getY()][p.getX()] = 1;
-            
-            if(p.getX() == loppuX && p.getY() == loppuY){
+
+            if (p.getX() == loppuX && p.getY() == loppuY) {
                 return true;
             }
-            
+
             sokkelo[y][x] = 1;
             puskeMahdollisetLiikkeetPinoon(sokkelo, p.getY(), p.getX(), s);
         }
         return false;
     }
-    
+
     /**
      * Käy lävitse kaikki mahdolliset liikkumiset, tarkistaa onko validi ja jos
      * on niin puskee pinoon.
-     * @param sokkelo       Nykyinen tarkasteltavana oleva sokkelo
-     * @param y             Paikka missä ollaan Y -akselin mukaisesti
-     * @param x             Paikka missä ollaan X -akselin mukaisesti
-     * @param s             Pino johon uudet liikkumiset asetetaan
+     *
+     * @param sokkelo Nykyinen tarkasteltavana oleva sokkelo
+     * @param y Paikka missä ollaan Y -akselin mukaisesti
+     * @param x Paikka missä ollaan X -akselin mukaisesti
+     * @param s Pino johon uudet liikkumiset asetetaan
      */
-    private void puskeMahdollisetLiikkeetPinoon(int[][] sokkelo, int y, int x, Stack s) {
+    private void puskeMahdollisetLiikkeetPinoon(int[][] sokkelo, int y, int x, Pino s) {
         if (onkoValidi(sokkelo, y - 1, x)) {
-            s.add(new Paikka(y-1, x, 0));
+            s.push(new Paikka(y - 1, x, 0));
         }
         if (onkoValidi(sokkelo, y, x - 1)) {
-            s.add(new Paikka(y, x-1, 0));
+            s.push(new Paikka(y, x - 1, 0));
         }
         if (onkoValidi(sokkelo, y + 1, x)) {
-            s.add(new Paikka(y+1, x, 0));
+            s.push(new Paikka(y + 1, x, 0));
         }
         if (onkoValidi(sokkelo, y, x + 1)) {
-            s.add(new Paikka(y, x+1, 0));
+            s.push(new Paikka(y, x + 1, 0));
         }
     }
 
@@ -186,5 +168,29 @@ public class Sokkelo {
         }
     }
 
-    
+    /**
+     * Getteri
+     *
+     * @return Palauttaa lopetuspaikan pisteen Y -akselilla.
+     */
+    public int getLoppuY() {
+        return this.loppuY;
+    }
+
+    /**
+     * Getteri
+     *
+     * @return Palauttaa lopetuspaikan pisteen X -akselilla.
+     */
+    public int getLoppuX() {
+        return this.loppuX;
+    }
+
+    /**
+     *
+     * @return palauttaa viimeisimmän luodun sokkelon lapaistavyyden
+     */
+    public boolean getOnkoLapaistava() {
+        return this.onkoLapaistavissa;
+    }
 }

@@ -30,6 +30,8 @@ public class Main {
 //        double bf2 = System.currentTimeMillis();
 
         int[][] toka = s.teeSokkelo(100, 100, 99, 99);
+//        int[][] toka = s1;
+        
 //        tulosta(toka);
 
         double luku = System.currentTimeMillis();
