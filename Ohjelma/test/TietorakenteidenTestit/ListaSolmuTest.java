@@ -4,6 +4,8 @@
  */
 package TietorakenteidenTestit;
 
+import Algoritmit.Paikka;
+import Tietorakenteet.ListaSolmu;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,24 +22,22 @@ public class ListaSolmuTest {
     public ListaSolmuTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void testaaEttaListaSolmuLisaltaaOikeinPaikan(){
+        Paikka eka = new Paikka(1, 1, 1);
+        ListaSolmu ls = new ListaSolmu(eka, null);
+        assertEquals(eka, ls.getPaikka());
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void testaaEttaPalauttaaViitteenSeuraavaanOikein(){
+        ListaSolmu eka = new ListaSolmu(new Paikka(1, 1, 1), null);
+        ListaSolmu toka = new ListaSolmu(new Paikka(1, 1, 1), eka);
+        
+        assertEquals(eka, toka.getSeuraava());
+    }
 }

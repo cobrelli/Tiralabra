@@ -41,17 +41,17 @@ public class Lista {
      */
     public Paikka etsiSolmu(Paikka p) {
 
-        if (top.p == p) {
-            return top.p;
+        if (top.getPaikka() == p) {
+            return top.getPaikka();
         }
 
-        ListaSolmu vertailtava = top.seuraava;
+        ListaSolmu vertailtava = top.getSeuraava();
 
         while (vertailtava != null) {
-            if (vertailtava.p == p) {
-                return vertailtava.p;
+            if (vertailtava.getPaikka() == p) {
+                return vertailtava.getPaikka();
             } else {
-                vertailtava = vertailtava.seuraava;
+                vertailtava = vertailtava.getSeuraava();
             }
         }
         return null;

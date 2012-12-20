@@ -9,8 +9,8 @@ import Algoritmit.Paikka;
  */
 public class ListaSolmu {
     
-    Paikka p;
-    ListaSolmu seuraava;
+    private Paikka p;
+    private ListaSolmu seuraava;
     
     /**
      * Konstruktori, luo uuden solmun jolla tallessa paikka olio sekä tieto seuraavasta
@@ -21,5 +21,21 @@ public class ListaSolmu {
     public ListaSolmu(Paikka p, ListaSolmu seuraava){
         this.p = p;
         this.seuraava = seuraava;
+    }
+    
+    /**
+     * Getteri
+     * @return          Palauttaa viitteen paikka olioon.
+     */
+    public Paikka getPaikka(){
+        return p;
+    }
+    
+    /**
+     * Getteri
+     * @return          Palauttaa viitteen seuraavaan listasolmuun.
+     */
+    public ListaSolmu getSeuraava(){
+        return seuraava;
     }
 }
