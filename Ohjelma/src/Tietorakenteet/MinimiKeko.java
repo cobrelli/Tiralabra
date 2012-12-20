@@ -29,9 +29,9 @@ public class MinimiKeko {
      */
     public void heapInsert(Paikka p) {
 
-        alkiot[heapSize] = p;
         int i = heapSize;
-
+        alkiot[i] = p;
+        
         while (i > 0 && alkiot[parent(i)].compareTo(p) > 0) {
             vaihda(i, parent(i));
             i = parent(i);
@@ -69,7 +69,7 @@ public class MinimiKeko {
      * järjestyksessä.
      * @param i         Kertoo järjesteltävän olion paikan keossa.
      */
-    private void minHeapify(int i) {
+    public void minHeapify(int i) {
 
         int l = left(i);
         int r = right(i);
@@ -120,7 +120,7 @@ public class MinimiKeko {
      * @return          Palauttaa vanhemman indeksin.
      */
     public int parent(int i) {
-        return i - 1 / 2;
+        return (i - 1) / 2;
     }
 
     /**
