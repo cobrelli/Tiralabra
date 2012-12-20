@@ -72,7 +72,7 @@ public class Dijkstra {
      * @param y             Kertoo tutkittavan paikan sijainnin y -akselilla.
      * @param x             Kertoo tutkittavan paikan sijainnin x -akselilla.
      */
-    public void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
+    private void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
             Paikka p, int y, int x) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
                 sokkelo[y][x] == 1) {

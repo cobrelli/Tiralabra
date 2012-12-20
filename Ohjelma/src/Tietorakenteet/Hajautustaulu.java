@@ -76,7 +76,7 @@ public class Hajautustaulu {
      * @param p Kertoo paikkaolion, jolle etsitään paikka taulusta.
      * @return Palauttaa paikan johon olio talletetaan tai on talletettu.
      */
-    public int hashaa(Paikka p) {
+    private int hashaa(Paikka p) {
         return p.hashCode() % kapasiteetti;
     }
 }

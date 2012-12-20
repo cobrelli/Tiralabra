@@ -69,7 +69,7 @@ public class MinimiKeko {
      * järjestyksessä.
      * @param i         Kertoo järjesteltävän olion paikan keossa.
      */
-    public void minHeapify(int i) {
+    private void minHeapify(int i) {
 
         int l = left(i);
         int r = right(i);
@@ -146,7 +146,7 @@ public class MinimiKeko {
      * @param i             Vaihdettava olio jonka tilalle pienin vaihdetaan.
      * @param pienin        Pienempi olio joka vaihdetaan ylemmäs keossa.
      */
-    public void vaihda(int i, int pienin) {
+    private void vaihda(int i, int pienin) {
         Paikka vaihdettava = alkiot[i];
         alkiot[i] = alkiot[pienin];
         alkiot[pienin] = vaihdettava;

@@ -78,7 +78,7 @@ public class AStar {
      * @param x             Tutkittavan paikan sijainti x -akselilla.
      * @param kaydyt        Hajautustaulu jo käydyistä sijainneista.
      */
-    public void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
+    private void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
             Paikka p, int y, int x, Hajautustaulu kaydyt) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
                 sokkelo[y][x] == 1 || kaydyt.get(paikat[y][x]) != null) {
@@ -110,7 +110,7 @@ public class AStar {
      * @param x             Sijainti x -akselilla.
      * @return              Palauttaa arvioidun etäisyyden Integerinä.
      */
-    public int arvioiEtaisyys(int[][] sokkelo, int y, int x){
+    private int arvioiEtaisyys(int[][] sokkelo, int y, int x){
         int etaisyys = (loppuY-y)+(loppuX-x);
         return etaisyys;
     }
