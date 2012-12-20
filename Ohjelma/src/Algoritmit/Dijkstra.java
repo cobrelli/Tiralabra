@@ -1,5 +1,6 @@
 package Algoritmit;
 
+import Tietorakenteet.MinimiKeko;
 import java.util.PriorityQueue;
 
 /**
@@ -35,15 +36,17 @@ public class Dijkstra {
         this.loppuY = loppuY;
         this.loppuX = loppuX;
         
-        PriorityQueue<Paikka> q = new PriorityQueue<>();
+//        PriorityQueue<Paikka> q = new PriorityQueue<>();
+        MinimiKeko q = new MinimiKeko(sokkelo.length*sokkelo[0].length);
+        
         Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
 
         paikat[0][0] = new Paikka(0, 0, 0);
-        q.add(paikat[0][0]);
+        q.heapInsert(paikat[0][0]);
         
         while (!q.isEmpty()) {
 
-            Paikka lahin = q.remove();
+            Paikka lahin = q.heapDelMin();
 
             if(lahin.getY() == loppuY && lahin.getX() == loppuX){
                 return paikat[loppuY][loppuX].getEtaisyys();
@@ -69,7 +72,7 @@ public class Dijkstra {
      * @param y             Kertoo tutkittavan paikan sijainnin y -akselilla.
      * @param x             Kertoo tutkittavan paikan sijainnin x -akselilla.
      */
-    public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
+    public void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
             Paikka p, int y, int x) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
                 sokkelo[y][x] == 1) {
@@ -80,15 +83,15 @@ public class Dijkstra {
         
         if(paikat[y][x] == null){
             paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            q.add(paikat[y][x]);
+            q.heapInsert(paikat[y][x]);
             return;
         }
         
         int vanhaEtaisyys = paikat[y][x].getEtaisyys();
         if(uusiEtaisyys<vanhaEtaisyys){
-            q.remove(paikat[y][x]);
+            q.heapDelMin();
             paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            q.add(paikat[y][x]);
+            q.heapInsert(paikat[y][x]);
         }
     }
 }

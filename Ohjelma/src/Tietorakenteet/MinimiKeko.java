@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Tietorakenteet;
 
 import Algoritmit.Paikka;
@@ -16,76 +12,87 @@ public class MinimiKeko {
     Paikka[] alkiot;
 
     public MinimiKeko(int koko) {
-        this.alkiot = new Paikka[koko];
-        this.heapSize = -1;
+        this.alkiot = new Paikka[koko + 1];
+        this.heapSize = 0;
     }
 
     public void heapInsert(Paikka p) {
-        heapSize++;
+
+        alkiot[heapSize] = p;
         int i = heapSize;
-        while (i > 1 && alkiot[parent(i)].compareTo(p) > 0) {
-            alkiot[i] = alkiot[parent(i)];
+
+        while (i > 0 && alkiot[parent(i)].compareTo(p) > 0) {
+            vaihda(i, parent(i));
             i = parent(i);
-            alkiot[i] = p;
         }
+
+        heapSize++;
     }
 
     public Paikka heapDelMin() {
+
         Paikka min = alkiot[0];
-        alkiot[0] = alkiot[heapSize];
+        alkiot[0] = alkiot[heapSize - 1];
         heapSize--;
-        minHeapify(0);
+        if (heapSize > 0) {
+            minHeapify(0);
+        }
         return min;
     }
 
+    public boolean isEmpty() {
+        return heapSize == 0;
+    }
+
     public void minHeapify(int i) {
-//        Paikka l = alkiot[left(i)];
-//        Paikka r = alkiot[right(i)];
 
         int l = left(i);
         int r = right(i);
         int pienin;
 
-        if (r <= heapSize) {
-            if (alkiot[l].compareTo(alkiot[r]) < 0) {
-                pienin = l;
-            } else {
-                pienin = r;
-            }
-            if (alkiot[i].compareTo(alkiot[pienin]) > 0) {
-                vaihda(i, pienin);
-                minHeapify(pienin);
-            }
-        } else if (l == heapSize && alkiot[i].compareTo(alkiot[l]) > 0) {
-            vaihda(i, l);
+        if (l >= heapSize && r >= heapSize) {
+            return;
+        }
+
+        if (alkiot[l].compareTo(alkiot[r]) < 0) {
+            pienin = l;
+        } else {
+            pienin = r;
+        }
+
+        if (alkiot[r].compareTo(alkiot[pienin]) < 0) {
+            pienin = r;
+        }
+        if (pienin != i) {
+            vaihda(i, pienin);
+            minHeapify(pienin);
         }
     }
 
-    public void heapDecKey(int i, int uusiArvo){
-        if(uusiArvo<alkiot[i].getEtaisyys()){
+    public void heapDecKey(int i, int uusiArvo) {
+        if (uusiArvo < alkiot[i].getEtaisyys()) {
             alkiot[i].setEtaisyys(uusiArvo);
             minHeapify(i);
         }
     }
-    
+
     public int getLength() {
         return alkiot.length;
     }
 
     public int parent(int i) {
-        return i / 2;
+        return i - 1 / 2;
     }
 
     public int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
 
     public int right(int i) {
-        return (2 * 1) + 1;
+        return 2 * i + 2;
     }
 
     public void vaihda(int i, int pienin) {
-        //vaihda i ja pienin
         Paikka vaihdettava = alkiot[i];
         alkiot[i] = alkiot[pienin];
         alkiot[pienin] = vaihdettava;
