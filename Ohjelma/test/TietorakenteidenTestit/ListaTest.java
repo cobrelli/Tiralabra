@@ -4,40 +4,64 @@
  */
 package TietorakenteidenTestit;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import Algoritmit.Paikka;
+import Tietorakenteet.Lista;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
  * @author Cobrelli
  */
 public class ListaTest {
-    
+
+    Lista l;
+
     public ListaTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
+        l = new Lista();
+    }
+
+    @Test
+    public void testaaEttaLisattySolmuLoytyyListasta() {
+        Paikka p = new Paikka(1, 1, 1);
+        l.add(p);
+        assertEquals(p, l.etsiSolmu(p));
+    }
+
+    @Test
+    public void testaaEttaLisatyllaJaLoydetyllaSamatXPlusY() {
+        l.add(new Paikka(4, 4, 2));
+        Paikka p = new Paikka(1, 1, 1);
+        l.add(p);
+        l.add(new Paikka(4, 4, 2));
+
+        Paikka loydetty = l.etsiSolmu(p);
+
+        int pituusP = (p.getX() + p.getY());
+        int pituusLoydetty = (loydetty.getX() + loydetty.getY());
+
+        assertEquals(pituusP, pituusLoydetty);
+    }
+
+    @Test
+    public void testaaEttaSolmuLoytyyListastaVaikkaLisataanUseita() {
+        Paikka p = new Paikka(1, 1, 1);
+
+        l.add(new Paikka(4, 4, 2));
+        l.add(p);
+        l.add(new Paikka(4, 4, 2));
+        l.add(new Paikka(4, 4, 2));
+
+        assertEquals(p, l.etsiSolmu(p));
     }
     
-    @After
-    public void tearDown() {
+    @Test (expected = NullPointerException.class)
+    public void testaaEttaPalauttaaNullJosseiLoydy(){
+        l.etsiSolmu(new Paikka(1, 1, 2));
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-     @Test
-     public void hello() {}
 }

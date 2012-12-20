@@ -44,7 +44,6 @@ public class Lista {
         if (top.getPaikka() == p) {
             return top.getPaikka();
         }
-
         ListaSolmu vertailtava = top.getSeuraava();
 
         while (vertailtava != null) {
