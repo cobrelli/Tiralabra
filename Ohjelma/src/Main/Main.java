@@ -4,7 +4,9 @@ import Algoritmit.AStar;
 import Algoritmit.BellmanFord;
 import Algoritmit.BruteForce;
 import Algoritmit.Dijkstra;
+import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
+import Tietorakenteet.Hajautustaulu;
 import java.util.Random;
 
 /**
@@ -74,6 +76,13 @@ public class Main {
         System.out.println(pituusA);
 //        tulosta(toka);
 //        tulosta(toka);
+        
+        Hajautustaulu h = new Hajautustaulu(10);
+        Paikka p = new Paikka(1, 1, 1);
+        h.put(p);
+        
+        System.out.println(h.get(p).getEtaisyys());
+        
     }
 
     /**
