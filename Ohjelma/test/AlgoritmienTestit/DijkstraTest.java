@@ -7,12 +7,9 @@ package AlgoritmienTestit;
 import Algoritmit.Dijkstra;
 import Sokkelo.Sokkelo;
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -55,7 +52,7 @@ public class DijkstraTest {
     
     @Test
     public void testaaEttaReittiLoytyyMyosIsommalla(){
-        int pituus = d.ratkaiseSokkelo(s.teeSokkelo(500, 500, 499, 499), 499, 499);
+        d.ratkaiseSokkelo(s.teeSokkelo(500, 500, 499, 499), 499, 499);
     }
     
     @Test

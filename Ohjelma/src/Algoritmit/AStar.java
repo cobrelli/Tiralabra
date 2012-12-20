@@ -44,7 +44,7 @@ public class AStar {
         Hajautustaulu kaydyt = new Hajautustaulu(sokkelo.length*sokkelo[0].length);
         
         paikat[0][0] = new Paikka(0, 0, 0);
-        paikat[0][0].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, 0, 0));
+        paikat[0][0].setEtaisyysloppuun(arvioiEtaisyys(0, 0));
         q.heapInsert(paikat[0][0]);
         
         while (!q.isEmpty()) {
@@ -89,7 +89,7 @@ public class AStar {
         
         if(paikat[y][x] == null){
             paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            paikat[y][x].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, y, x));
+            paikat[y][x].setEtaisyysloppuun(arvioiEtaisyys(y, x));
             q.heapInsert(paikat[y][x]);
             return;
         }
@@ -110,7 +110,7 @@ public class AStar {
      * @param x             Sijainti x -akselilla.
      * @return              Palauttaa arvioidun etäisyyden Integerinä.
      */
-    private int arvioiEtaisyys(int[][] sokkelo, int y, int x){
+    private int arvioiEtaisyys(int y, int x){
         int etaisyys = (loppuY-y)+(loppuX-x);
         return etaisyys;
     }

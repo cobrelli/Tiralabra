@@ -4,6 +4,9 @@
  */
 package AlgoritmienTestit;
 
+import Algoritmit.AStar;
+import Sokkelo.Sokkelo;
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,27 +20,22 @@ import static org.junit.Assert.*;
  */
 public class AStarTest {
     
+    Sokkelo s;
+    AStar a;
+    
     public AStarTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
     }
     
     @Before
     public void setUp() {
+        s = new Sokkelo(new Random());
+        a = new AStar();
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void testaaEttaReittiOnOikeanPituinen(){
+        int pituus = a.ratkaiseSokkelo(s.teeSokkelo(1, 6, 0, 5), 0, 5);
+        assertEquals(5, pituus);
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-     @Test
-     public void hello() {}
+    
 }
