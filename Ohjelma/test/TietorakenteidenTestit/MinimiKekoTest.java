@@ -46,6 +46,6 @@ public class MinimiKekoTest {
         keko.heapInsert(pieni);
         keko.heapInsert(iso);
 
-        assertEquals(pieni.getEtaisyys(), keko.heapDelMin().getEtaisyys());
+        assertEquals(pieni, keko.heapDelMin());
     }
 }
