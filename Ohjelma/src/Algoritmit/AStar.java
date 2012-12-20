@@ -4,12 +4,8 @@
  */
 package Algoritmit;
 
+import Tietorakenteet.Hajautustaulu;
 import Tietorakenteet.MinimiKeko;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
 
 /**
  * A* algoritmi, joka ratkaisee annetun sokkelon. Oletetaan että sokkelo on
@@ -44,7 +40,8 @@ public class AStar {
         
         Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
 //        List<PaikkaAStar> kaydyt = new LinkedList();
-        Set<Paikka> kaydyt = new HashSet();
+//        Set<Paikka> kaydyt = new HashSet();
+        Hajautustaulu kaydyt = new Hajautustaulu(sokkelo.length*sokkelo[0].length);
         
         paikat[0][0] = new Paikka(0, 0, 0);
         paikat[0][0].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, 0, 0));
@@ -53,7 +50,7 @@ public class AStar {
         while (!q.isEmpty()) {
 
             Paikka lahin = q.heapDelMin();
-            kaydyt.add(lahin);
+            kaydyt.put(lahin);
             
             if(lahin.getY() == loppuY && lahin.getX() == loppuX){
                 return paikat[loppuY][loppuX].getEtaisyys();
@@ -82,9 +79,9 @@ public class AStar {
      * @param kaydyt        Hajautustaulu jo käydyistä sijainneista.
      */
     public void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
-            Paikka p, int y, int x, Set kaydyt) {
+            Paikka p, int y, int x, Hajautustaulu kaydyt) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
-                sokkelo[y][x] == 1 || kaydyt.contains(paikat[y][x])) {
+                sokkelo[y][x] == 1 || kaydyt.get(paikat[y][x]) != null) {
             return;
         }
 

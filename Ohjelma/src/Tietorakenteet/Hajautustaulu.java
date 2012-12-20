@@ -26,8 +26,6 @@ public class Hajautustaulu {
 
     public void put(Paikka p) {
         koko++;
-//        int paikka = hashaa(p);
-//        System.out.println(p.hashCode() % kapasiteetti);
         int idx = hashaa(p);
 
 //        List<Paikka> L = taulukko[idx];
@@ -42,9 +40,16 @@ public class Hajautustaulu {
     }
 
     public Paikka get(Paikka p) {
-        List<Paikka> L = taulukko[hashaa(p)];
-//        System.out.println(p.hashCode() % kapasiteetti);
 
+        if(p == null){
+            return null;
+        }
+        List<Paikka> L = taulukko[hashaa(p)];
+
+        if(L == null){
+            return null;
+        }
+        
         for (Paikka paikka : L) {
             if (paikka == p) {
                 return paikka;
@@ -55,8 +60,7 @@ public class Hajautustaulu {
     }
 
     public int hashaa(Paikka p) {
-//        System.out.println(p.hashCode() % kapasiteetti);
-        return (p.getEtaisyys() + p.getEtaisyysLoppuun()) % kapasiteetti;
+        return p.hashCode() % kapasiteetti;
     }
 
     public int size() {
