@@ -7,39 +7,53 @@ package Tietorakenteet;
 import Algoritmit.Paikka;
 
 /**
+ * Linkitetty rakenne johon talletetaan paikka olioita.
  *
  * @author Cobrelli
  */
 public class Lista {
-    
+
     private ListaSolmu top;
-    
-    public Lista(){
+
+    /**
+     * Konstruktori luo uuden tyhjän listan.
+     */
+    public Lista() {
         top = null;
     }
-    
-    public void add(Paikka p){
+
+    /**
+     * Lisää halutun paikka olion listaan.
+     *
+     * @param p Antaa viitteen talletettavaan paikka olioon.
+     */
+    public void add(Paikka p) {
         ListaSolmu uusi = new ListaSolmu(p, top);
         top = uusi;
     }
-    
-    public Paikka etsiSolmu(Paikka p){
-        
-        if(top.p==p){
+
+    /**
+     * Etsii halutun solmun listalta.
+     *
+     * @param p Antaa viitteen etsittävään paikka olioon.
+     * @return Palauttaa etsityn paikka olion, jos sellainen löytyi, muuten
+     * null.
+     */
+    public Paikka etsiSolmu(Paikka p) {
+
+        if (top.p == p) {
             return top.p;
         }
-        
+
         ListaSolmu vertailtava = top.seuraava;
-        
-        while(vertailtava != null){
-            if(vertailtava.p == p){
+
+        while (vertailtava != null) {
+            if (vertailtava.p == p) {
                 return vertailtava.p;
-            }else{
+            } else {
                 vertailtava = vertailtava.seuraava;
             }
         }
-        
-        
         return null;
     }
 }

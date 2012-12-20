@@ -31,7 +31,7 @@ public class Main {
         BruteForce bf = new BruteForce();
 //        double bf2 = System.currentTimeMillis();
 
-        int[][] toka = s.teeSokkelo(100, 100, 99, 99);
+        int[][] toka = s.teeSokkelo(150, 150, 149, 149);
 //        int[][] toka = s1;
         
 //        tulosta(toka);
@@ -77,11 +77,11 @@ public class Main {
 //        tulosta(toka);
 //        tulosta(toka);
         
-        Hajautustaulu h = new Hajautustaulu(10);
-        Paikka p = new Paikka(1, 1, 1);
-        h.put(p);
+//        Hajautustaulu h = new Hajautustaulu(10);
+//        Paikka p = new Paikka(1, 1, 1);
+//        h.put(p);
         
-        System.out.println(h.get(p).getEtaisyys());
+//        System.out.println(h.get(p).getEtaisyys());
         
     }
 
