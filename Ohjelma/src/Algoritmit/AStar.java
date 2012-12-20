@@ -4,6 +4,7 @@
  */
 package Algoritmit;
 
+import Tietorakenteet.MinimiKeko;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,18 +39,20 @@ public class AStar {
         this.loppuX = loppuX;
         this.loppuY = loppuY;
         
-        PriorityQueue<Paikka> q = new PriorityQueue<>();
+//        PriorityQueue<Paikka> q = new PriorityQueue<>();
+        MinimiKeko q = new MinimiKeko(sokkelo.length*sokkelo[0].length);
+        
         Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
 //        List<PaikkaAStar> kaydyt = new LinkedList();
         Set<Paikka> kaydyt = new HashSet();
         
         paikat[0][0] = new Paikka(0, 0, 0);
         paikat[0][0].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, 0, 0));
-        q.add(paikat[0][0]);
+        q.heapInsert(paikat[0][0]);
         
         while (!q.isEmpty()) {
 
-            Paikka lahin = q.remove();
+            Paikka lahin = q.heapDelMin();
             kaydyt.add(lahin);
             
             if(lahin.getY() == loppuY && lahin.getX() == loppuX){
@@ -78,7 +81,7 @@ public class AStar {
      * @param x             Tutkittavan paikan sijainti x -akselilla.
      * @param kaydyt        Hajautustaulu jo käydyistä sijainneista.
      */
-    public void relax(int[][] sokkelo, PriorityQueue<Paikka> q, Paikka[][] paikat,
+    public void relax(int[][] sokkelo, MinimiKeko q, Paikka[][] paikat,
             Paikka p, int y, int x, Set kaydyt) {
         if (x < 0 || y < 0 || x >= paikat[0].length || y >= paikat.length || 
                 sokkelo[y][x] == 1 || kaydyt.contains(paikat[y][x])) {
@@ -90,15 +93,15 @@ public class AStar {
         if(paikat[y][x] == null){
             paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
             paikat[y][x].setEtaisyysloppuun(arvioiEtaisyys(sokkelo, y, x));
-            q.add(paikat[y][x]);
+            q.heapInsert(paikat[y][x]);
             return;
         }
         
         int vanhaEtaisyys = paikat[y][x].getEtaisyys();
         if(uusiEtaisyys<vanhaEtaisyys){
-            q.remove(paikat[y][x]);
+            q.heapDelMin();
             paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            q.add(paikat[y][x]);
+            q.heapInsert(paikat[y][x]);
         }
     }
     

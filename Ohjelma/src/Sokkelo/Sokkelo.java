@@ -3,7 +3,6 @@ package Sokkelo;
 import Algoritmit.Paikka;
 import Tietorakenteet.Pino;
 import java.util.Random;
-import java.util.Stack;
 
 /**
  * Luo uuden luokan Sokkelo, joka tarvittaessa generoi matriisi -sokkeloita.
