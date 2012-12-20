@@ -18,7 +18,7 @@ public class Lista {
         top = null;
     }
     
-    public void push(Paikka p){
+    public void add(Paikka p){
         ListaSolmu uusi = new ListaSolmu(p, top);
         top = uusi;
     }

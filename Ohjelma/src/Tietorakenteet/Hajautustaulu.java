@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class Hajautustaulu {
 
-    List[] taulukko;
+    Lista[] taulukko;
     int koko;
     int kapasiteetti;
 
     public Hajautustaulu(int koko) {
-        this.taulukko = new List[(koko)];
+        this.taulukko = new Lista[(koko)];
         this.kapasiteetti = koko;
         this.koko = 0;
     }
@@ -30,7 +30,7 @@ public class Hajautustaulu {
 
 //        List<Paikka> L = taulukko[idx];
         if (taulukko[hashaa(p)] == null) {
-            List<Paikka> L = new LinkedList();
+            Lista L = new Lista();
             taulukko[idx] = L;
             L.add(p);
 
@@ -44,19 +44,13 @@ public class Hajautustaulu {
         if(p == null){
             return null;
         }
-        List<Paikka> L = taulukko[hashaa(p)];
+        Lista L = taulukko[hashaa(p)];
 
         if(L == null){
             return null;
         }
         
-        for (Paikka paikka : L) {
-            if (paikka == p) {
-                return paikka;
-            }
-        }
-
-        return null;
+        return L.etsiSolmu(p);
     }
 
     public int hashaa(Paikka p) {
