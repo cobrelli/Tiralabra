@@ -4,9 +4,7 @@ import Algoritmit.AStar;
 import Algoritmit.BellmanFord;
 import Algoritmit.BruteForce;
 import Algoritmit.Dijkstra;
-import Algoritmit.Paikka;
 import Sokkelo.Sokkelo;
-import Tietorakenteet.Hajautustaulu;
 import java.util.Random;
 
 /**

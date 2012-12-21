@@ -29,6 +29,10 @@ public class MinimiKeko {
      */
     public void heapInsert(Paikka p) {
 
+        if(heapSize == getLength()){
+            return;
+        }
+        
         int i = heapSize;
         alkiot[i] = p;
         
@@ -47,6 +51,10 @@ public class MinimiKeko {
      */
     public Paikka heapDelMin() {
 
+        if(heapSize<0){
+            return null;
+        }
+        
         Paikka min = alkiot[0];
         alkiot[0] = alkiot[heapSize - 1];
         heapSize--;
