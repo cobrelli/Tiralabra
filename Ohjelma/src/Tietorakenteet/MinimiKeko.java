@@ -51,7 +51,7 @@ public class MinimiKeko {
      */
     public Paikka heapDelMin() {
 
-        if(heapSize<0){
+        if(heapSize<1){
             return null;
         }
         

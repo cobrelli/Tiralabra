@@ -34,6 +34,11 @@ public class MinimiKekoTest {
     }
 
     @Test
+    public void testaaEttaPalauttaaNullJosTyhja(){
+        assertEquals(null, keko.heapDelMin());
+    }
+    
+    @Test
     public void testaaEttaHeapDelMinPalauttaaPienimmän() {
         Paikka iso = new Paikka(2, 2, 7);
         Paikka pieni = new Paikka(1, 1, 1);
@@ -60,5 +65,40 @@ public class MinimiKekoTest {
             keko.heapInsert(new Paikka(i, i, i));
         }
         assertEquals(1, keko.heapDelMin().getEtaisyys());
+    }
+    
+    @Test
+    public void testaaEttaLeftPalauttaaLapsenIdx(){
+        Paikka pieni = new Paikka(1, 1, 1);
+        Paikka isompi = new Paikka(2, 2, 3);
+
+        keko.heapInsert(isompi);
+        keko.heapInsert(pieni);
+        
+        assertEquals(1, keko.left(0));
+    }
+    
+    @Test
+    public void testaaEttaRightPalauttaaLapsenIdx(){
+        Paikka pieni = new Paikka(1, 1, 1);
+        Paikka isompi = new Paikka(2, 2, 3);
+        Paikka isoin = new Paikka(3,3,4);
+
+        keko.heapInsert(isompi);
+        keko.heapInsert(pieni);
+        keko.heapInsert(isoin);
+        
+        assertEquals(2, keko.right(0));
+    }
+    
+    @Test
+    public void testaaEttaParentPalauttaaVanhemmanIdx(){
+        Paikka pieni = new Paikka(1, 1, 1);
+        Paikka isompi = new Paikka(2, 2, 3);
+
+        keko.heapInsert(isompi);
+        keko.heapInsert(pieni);
+        
+        assertEquals(0, keko.parent(1));
     }
 }
