@@ -4,40 +4,47 @@
  */
 package TietorakenteidenTestit;
 
-import org.junit.After;
-import org.junit.AfterClass;
+import Algoritmit.Paikka;
+import Tietorakenteet.Hajautustaulu;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author Cobrelli
  */
 public class HajautustauluTest {
     
+    Hajautustaulu ht;
+    
     public HajautustauluTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
     }
     
     @Before
     public void setUp() {
+        ht = new Hajautustaulu(10);
     }
     
-    @After
-    public void tearDown() {
-    }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
      @Test
-     public void hello() {}
+     public void testaaEttaLisattyPalautuuTaulusta() {
+         Paikka p = new Paikka(1, 1, 1);
+         ht.put(p);
+         assertEquals(p, ht.get(p));
+     }
+     
+     @Test
+     public void testaaEttaHajautustauluunVoidaanLisataUseita(){
+         Paikka ennenLisayksia = new Paikka(1, 1, 1);
+         ht.put(ennenLisayksia);
+         for(int i = 0;i<50;i++){
+             ht.put(new Paikka(i, i, i));
+         }
+         assertEquals(ennenLisayksia, ht.get(ennenLisayksia));
+     }
+     
+     @Test
+     public void testaaEttaHakuTyhjastaPalauttaaNull(){
+         assertEquals(null, ht.get(new Paikka(1, 1, 1)));
+     }
+     
 }
