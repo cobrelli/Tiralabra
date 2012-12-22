@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package TietorakenteidenTestit;
 
 import Algoritmit.Paikka;
@@ -11,21 +7,30 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Minimikeolle tarkoitetut testit.
  * @author Cobrelli
  */
 public class MinimiKekoTest {
 
     MinimiKeko keko;
 
+    /**
+     * Konstruktori.
+     */
     public MinimiKekoTest() {
     }
 
+    /**
+     * Alustaa testeille uuden minimikeon.
+     */
     @Before
     public void setUp() {
         keko = new MinimiKeko(5);
     }
 
+    /**
+     * Testaa että kekoon lisätty alkio löytyy heapdelmin metodilla.
+     */
     @Test
     public void testaaEttaLisattyPaikkaLoytyyKeosta() {
         Paikka p = new Paikka(1, 1, 1);
@@ -33,11 +38,17 @@ public class MinimiKekoTest {
         assertEquals(p, keko.heapDelMin());
     }
 
+    /**
+     * Testaa että tyhjästä listasta haettaessa palautuu null.
+     */
     @Test
     public void testaaEttaPalauttaaNullJosTyhja(){
         assertEquals(null, keko.heapDelMin());
     }
     
+    /**
+     * Testaa että HeapDelMin metodi palauttaa varmasti pienimmän olion.
+     */
     @Test
     public void testaaEttaHeapDelMinPalauttaaPienimmän() {
         Paikka iso = new Paikka(2, 2, 7);
@@ -51,6 +62,9 @@ public class MinimiKekoTest {
         assertEquals(pieni, keko.heapDelMin());
     }
 
+    /**
+     * Testaa että heapdeckey metodi vähentää oikeasti paikkaolion arvoa.
+     */
     @Test
     public void testaaEttaHeapDecKeyToimii() {
         Paikka p = new Paikka(2, 2, 3);
@@ -59,6 +73,9 @@ public class MinimiKekoTest {
         assertEquals(1, p.getEtaisyys());
     }
     
+    /**
+     * Testaa että keko järjestyy oikein ja pienin palautuu HeapDelMin metodilla.
+     */
     @Test
     public void testaaEttaHeapDelMinPalauttaaPienimmänUseista(){
         for(int i = 5;i>0;i--){
@@ -67,6 +84,9 @@ public class MinimiKekoTest {
         assertEquals(1, keko.heapDelMin().getEtaisyys());
     }
     
+    /**
+     * Testaa että left kertoo vasemman lapsen indeksin.
+     */
     @Test
     public void testaaEttaLeftPalauttaaLapsenIdx(){
         Paikka pieni = new Paikka(1, 1, 1);
@@ -78,6 +98,9 @@ public class MinimiKekoTest {
         assertEquals(1, keko.left(0));
     }
     
+    /**
+     * Testaa että right kertoo oikean lapsen indeksin.
+     */
     @Test
     public void testaaEttaRightPalauttaaLapsenIdx(){
         Paikka pieni = new Paikka(1, 1, 1);
@@ -91,6 +114,9 @@ public class MinimiKekoTest {
         assertEquals(2, keko.right(0));
     }
     
+    /**
+     * Testaa että parent palauttaa vanhemman indeksin.
+     */
     @Test
     public void testaaEttaParentPalauttaaVanhemmanIdx(){
         Paikka pieni = new Paikka(1, 1, 1);
