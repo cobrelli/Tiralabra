@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package TietorakenteidenTestit;
 
 import Algoritmit.Paikka;
@@ -11,18 +7,28 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Silmasolmuille tarkoitetut testit
  * @author Cobrelli
  */
 public class ListaSolmuTest {
     
+    /**
+     * Konstruktori
+     */
     public ListaSolmuTest() {
     }
     
+    /**
+     * 
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     * Testaa että kun listasolmuun lisätään paikka olio, löytyy se sieltä myös
+     * halutessa.
+     */
     @Test
     public void testaaEttaListaSolmuLisaltaaOikeinPaikan(){
         Paikka eka = new Paikka(1, 1, 1);
@@ -30,6 +36,9 @@ public class ListaSolmuTest {
         assertEquals(eka, ls.getPaikka());
     }
     
+    /**
+     * Testaa että viite seuraavaan solmuun palautuu oikein.
+     */
     @Test
     public void testaaEttaPalauttaaViitteenSeuraavaanOikein(){
         ListaSolmu eka = new ListaSolmu(new Paikka(1, 1, 1), null);
