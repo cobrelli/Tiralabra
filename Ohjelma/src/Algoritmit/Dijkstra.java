@@ -87,9 +87,11 @@ public class Dijkstra {
         
         int vanhaEtaisyys = paikat[y][x].getEtaisyys();
         if(uusiEtaisyys<vanhaEtaisyys){
-            q.heapDelMin();
-            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            q.heapInsert(paikat[y][x]);
+//            q.heapDelMin();
+//            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
+//            q.heapInsert(paikat[y][x]);
+            q.heapDecKey(0, uusiEtaisyys);
+            
         }
     }
 }
