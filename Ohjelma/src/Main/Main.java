@@ -18,9 +18,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-    
+
         ajaEsimerkkiAjot();
-        
+
     }
 
     /**
@@ -59,14 +59,14 @@ public class Main {
 
         BruteForce bf = new BruteForce();
 
-        int[][] toka = s.teeSokkelo(15, 15, 14, 14);
+        int[][] toka = s.teeSokkelo(1500, 1500, 1, 300);
 
         double luku = System.currentTimeMillis();
         int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
         double luku2 = System.currentTimeMillis();
 
-        System.out.println(pituus);
         System.out.println("BruteForce " + (luku2 - luku));
+        System.out.println("Reitin pituus: " + pituus);
 
         BellmanFord bell = new BellmanFord();
 
@@ -75,7 +75,7 @@ public class Main {
         double bell2 = System.currentTimeMillis();
 
         System.out.println("bellman " + (bell2 - bell1));
-        System.out.println(pituusBell);
+        System.out.println("Reitin pituus: " + pituusBell);
 
         Dijkstra d = new Dijkstra();
 
@@ -84,7 +84,7 @@ public class Main {
         double D2 = System.currentTimeMillis();
 
         System.out.println("Dijkstra " + (D2 - D1));
-        System.out.println(pituusD);
+        System.out.println("Reitin pituus: " + pituusD);
 
         AStar a = new AStar();
 
@@ -93,10 +93,10 @@ public class Main {
         double A2 = System.currentTimeMillis();
 
         System.out.println("AStar " + (A2 - A1));
-        System.out.println(pituusA);
+        System.out.println("Reitin pituus: " + pituusA);
 
         System.out.println();
         System.out.println("Läpikäyty sokkelo");
-        tulosta(toka);
+//        tulosta(toka);
     }
 }
