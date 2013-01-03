@@ -29,7 +29,7 @@ public class Main {
         BruteForce bf = new BruteForce();
 //        double bf2 = System.currentTimeMillis();
 
-        int[][] toka = s.teeSokkelo(150, 150, 149, 149);
+        int[][] toka = s.teeSokkelo(1500, 1500, 1490, 1490);
 //        int[][] toka = s1;
         
 //        tulosta(toka);
