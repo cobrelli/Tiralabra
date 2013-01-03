@@ -52,6 +52,10 @@ public class Main {
         {0, 1, 0, 0, 0},
         {0, 0, 0, 0, 0}};
 
+    /**
+     * Suorittaa esimerkit kaikista algoritmeista ja laskee niiden tehon
+     * annetulle taulukolle.
+     */
     public static void ajaEsimerkkiAjot() {
         Random random = new Random();
 
@@ -59,7 +63,7 @@ public class Main {
 
         BruteForce bf = new BruteForce();
 
-        int[][] toka = s.teeSokkelo(1500, 1500, 1, 300);
+        int[][] toka = s.teeSokkelo(150, 150, 149, 149);
 
         double luku = System.currentTimeMillis();
         int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
