@@ -1,7 +1,6 @@
 package Algoritmit;
 
 import Tietorakenteet.MinimiKeko;
-import java.util.PriorityQueue;
 
 /**
  * Dijkstran algoritmi. Tutkii lyhimmän etäisyyden käyttäen hyväksi minimikekoa.
@@ -36,7 +35,6 @@ public class Dijkstra {
         this.loppuY = loppuY;
         this.loppuX = loppuX;
         
-//        PriorityQueue<Paikka> q = new PriorityQueue<>();
         MinimiKeko q = new MinimiKeko(sokkelo.length*sokkelo[0].length);
         
         Paikka[][] paikat = new Paikka[sokkelo.length][sokkelo[0].length];
@@ -89,9 +87,11 @@ public class Dijkstra {
         
         int vanhaEtaisyys = paikat[y][x].getEtaisyys();
         if(uusiEtaisyys<vanhaEtaisyys){
-            q.heapDelMin();
-            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
-            q.heapInsert(paikat[y][x]);
+//            q.heapDelMin();
+//            paikat[y][x] = new Paikka(y, x, uusiEtaisyys);
+//            q.heapInsert(paikat[y][x]);
+            q.heapDecKey(0, uusiEtaisyys);
+            
         }
     }
 }
