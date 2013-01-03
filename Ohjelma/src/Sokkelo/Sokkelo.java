@@ -74,7 +74,7 @@ public class Sokkelo {
     private boolean testaaSokkeloIteratiivisellaDFS(int[][] sokkelo) {
 
 //        Stack<Paikka> s = new Stack<>();
-        Pino s = new Pino(sokkelo.length*sokkelo[0].length);
+        Pino s = new Pino(sokkelo.length * sokkelo[0].length);
         int y = 0;
         int x = 0;
 
@@ -183,6 +183,24 @@ public class Sokkelo {
      */
     public int getLoppuX() {
         return this.loppuX;
+    }
+
+    /**
+     * Setteri
+     *
+     * @param uusi Kertoo uuden loppu pisteen paikan sijainnin Y -akselilla.
+     */
+    public void setLoppuY(int uusi) {
+        this.loppuY = uusi;
+    }
+
+    /**
+     * Setteri
+     *
+     * @param uusi Kertoo uuden loppu pisteen paikan sijainnin X -akselilla.
+     */
+    public void setLoppuX(int uusi) {
+        this.loppuX = uusi;
     }
 
     /**
