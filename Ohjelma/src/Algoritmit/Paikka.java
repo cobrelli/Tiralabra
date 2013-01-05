@@ -16,9 +16,9 @@ public class Paikka implements Comparable<Paikka> {
     /**
      * Paikkaluokan konstruktori, joka saa arvot y ja x
      *
-     * @param y             kertoo paikan y akselilla matriisissa
-     * @param x             kertoo paikan x akselilla matriisissa
-     * @param etaisyys      kertoo etäisyyden aloituspisteeseen.
+     * @param y kertoo paikan y akselilla matriisissa
+     * @param x kertoo paikan x akselilla matriisissa
+     * @param etaisyys kertoo etäisyyden aloituspisteeseen.
      */
     public Paikka(int y, int x, int etaisyys) {
         this.x = x;
@@ -47,7 +47,8 @@ public class Paikka implements Comparable<Paikka> {
 
     /**
      * Getteri
-     * @return      Palauttaa etäisyyden aloituspisteeseen.
+     *
+     * @return Palauttaa etäisyyden aloituspisteeseen.
      */
     public int getEtaisyys() {
         return this.etaisyys;
@@ -55,7 +56,8 @@ public class Paikka implements Comparable<Paikka> {
 
     /**
      * Setteri, asettaa uuden etäisyyden alkupisteeseen.
-     * @param etaisyys      Uusi etäisyys alkuun.
+     *
+     * @param etaisyys Uusi etäisyys alkuun.
      */
     public void setEtaisyys(int etaisyys) {
         this.etaisyys = etaisyys;
@@ -63,7 +65,8 @@ public class Paikka implements Comparable<Paikka> {
 
     /**
      * Setteri, asettaa uuden etäisyyden maaliin.
-     * @param uusi          Uusi etäisyys maaliin.
+     *
+     * @param uusi Uusi etäisyys maaliin.
      */
     public void setEtaisyysloppuun(int uusi) {
         this.etaisyysLoppuun = uusi;
@@ -71,12 +74,21 @@ public class Paikka implements Comparable<Paikka> {
 
     /**
      * Getteri
-     * @return      Palauttaa etäisyyden loppuun.
+     *
+     * @return Palauttaa etäisyyden loppuun.
      */
     public int getEtaisyysLoppuun() {
         return this.etaisyysLoppuun;
     }
 
+    /**
+     * compareTo metodi jolla vertaillaa kahden solmun etäisyyttä niiden
+     * järjestämistä varten.
+     *
+     * @param o Antaa viitteen vertailtavaan paikkaan.
+     * @return Jos etaisyydet ovat yhtä pitkät palautetaan 0, jos tämä on
+     * suurempi kuin verrattava palautetaan 1, muuten -1.
+     */
     @Override
     public int compareTo(Paikka o) {
         if ((this.etaisyys + this.etaisyysLoppuun) == (o.etaisyys + this.etaisyysLoppuun)) {

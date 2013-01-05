@@ -10,7 +10,7 @@ public class BellmanFord {
 
     int loppuY;
     int loppuX;
-    
+
     /**
      * Konstruktori
      */
@@ -24,43 +24,32 @@ public class BellmanFord {
      * seinä sitä ei käsitellä ollenkaan. Viimeistä solmua ei myöskään
      * käsitellä.
      *
-     * @param sokkelo       Antaa tutkittavan sokkelon matriisina.
-     * @param loppuY        Kertoo lopetuspaikan sijainnin y -akselilla.
-     * @param loppuX        Kertoo lopetuspaikan sijainnin x -akselilla.
+     * @param sokkelo Antaa tutkittavan sokkelon matriisina.
+     * @param loppuY Kertoo lopetuspaikan sijainnin y -akselilla.
+     * @param loppuX Kertoo lopetuspaikan sijainnin x -akselilla.
      * @return Palauttaa löydetyn reitin pituuden.
      */
     public int ratkaiseSokkelo(int[][] sokkelo, int loppuY, int loppuX) {
 
         this.loppuY = loppuY;
         this.loppuX = loppuX;
-        
+
         int[][] lapiKaytava = new int[sokkelo.length][sokkelo[0].length];
 
-        for (int i = 0; i < sokkelo.length; i++) {
-            for (int n = 0; n < sokkelo[0].length; n++) {
-                if (sokkelo[i][n] == 1) {
-                } else {
-                    lapiKaytava[i][n] = Integer.MAX_VALUE / 2;
-                }
-            }
-        }
+        alustaEtaisyydet(sokkelo, lapiKaytava);
 
-        int lapikaynnit = Math.max(sokkelo[0].length-1, sokkelo.length-1);
+        int lapikaynnit = Math.max(sokkelo[0].length - 1, sokkelo.length - 1);
         lapiKaytava[0][0] = 0;
 
         for (int kierros = 0; kierros < lapikaynnit; kierros++) {
             for (int i = 0; i < sokkelo.length; i++) {
                 for (int n = 0; n < sokkelo[0].length; n++) {
-                    if (sokkelo[i][n] != 1) {
-                        if (i == loppuY && n == loppuX) {
-                        } else {
+                    if (sokkelo[i][n] != 1 && (i != loppuY || n != loppuX)) {
                             TutkiKaikkiKaaret(sokkelo, lapiKaytava, i, n);
-                        }
                     }
                 }
             }
         }
-
         return lapiKaytava[loppuY][loppuX];
     }
 
@@ -118,6 +107,24 @@ public class BellmanFord {
     private void relax(int[][] lapiKaytava, int y, int x, int yKohde, int xKohde) {
         if ((lapiKaytava[y][x] + 1) < lapiKaytava[yKohde][xKohde]) {
             lapiKaytava[yKohde][xKohde] = lapiKaytava[y][x] + 1;
+        }
+    }
+
+    /**
+     * Algoritmin sisäinen metodi etäisyyksien alustamista varten
+     * apumatriisissa.
+     *
+     * @param sokkelo Antaa viitteen alkuperäiseen matriisiin.
+     * @param lapiKaytava Antaa viitteen käytettävään apumatriisiin.
+     */
+    private void alustaEtaisyydet(int[][] sokkelo, int[][] lapiKaytava) {
+        for (int i = 0; i < sokkelo.length; i++) {
+            for (int n = 0; n < sokkelo[0].length; n++) {
+                if (sokkelo[i][n] == 1) {
+                } else {
+                    lapiKaytava[i][n] = Integer.MAX_VALUE / 2;
+                }
+            }
         }
     }
 }
