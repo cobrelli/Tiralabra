@@ -62,8 +62,12 @@ public class Main {
         Sokkelo s = new Sokkelo(random);
 
         BruteForce bf = new BruteForce();
-
-        int[][] toka = s.teeSokkelo(150, 150, 149, 149);
+        
+        System.out.println("Esimerkki ajo:");
+        System.out.println("Taulukon koko 150 x 150, maalipisteen sijainti: (15), (88)");
+        System.out.println();
+        
+        int[][] toka = s.teeSokkelo(150, 150, 15, 88);
 
         double luku = System.currentTimeMillis();
         int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
