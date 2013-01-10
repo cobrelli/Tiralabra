@@ -8,7 +8,7 @@ import Sokkelo.Sokkelo;
 import java.util.Random;
 
 /**
- *
+ * Main metodi, jonka tarkoitus on käynnistää esimerkkiajot
  * @author Cobrelli
  */
 public class Main {
@@ -24,8 +24,8 @@ public class Main {
     }
 
     /**
-     *
-     * @param s
+     * Tulostaa halutun taulukon
+     * @param s Antaa viitteen matriisiin.
      */
     public static void tulosta(int[][] s) {
         for (int i = 0; i < s.length; i++) {
@@ -36,7 +36,7 @@ public class Main {
         }
     }
     /**
-     *
+     * Toinen pienistä testimatriiseista
      */
     public static int[][] s1 = {{0, 1, 0, 0, 0},
         {0, 1, 0, 1, 0},
@@ -44,7 +44,7 @@ public class Main {
         {0, 1, 0, 1, 0},
         {0, 0, 0, 1, 0}};
     /**
-     *
+     * Toinen pienistä testimatriiseista
      */
     public static int[][] s2 = {{0, 0, 0, 0, 0},
         {0, 0, 0, 1, 0},
@@ -69,21 +69,21 @@ public class Main {
         
         int[][] toka = s.teeSokkelo(7000, 7000, 6900, 6900);
 
-//        double luku = System.currentTimeMillis();
-//        int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
-//        double luku2 = System.currentTimeMillis();
-//
-//        System.out.println("BruteForce " + (luku2 - luku));
-//        System.out.println("Reitin pituus: " + pituus);
-//
-//        BellmanFord bell = new BellmanFord();
-//
-//        double bell1 = System.currentTimeMillis();
-//        int pituusBell = bell.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
-//        double bell2 = System.currentTimeMillis();
-//
-//        System.out.println("bellman " + (bell2 - bell1));
-//        System.out.println("Reitin pituus: " + pituusBell);
+        double luku = System.currentTimeMillis();
+        int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
+        double luku2 = System.currentTimeMillis();
+
+        System.out.println("BruteForce " + (luku2 - luku));
+        System.out.println("Reitin pituus: " + pituus);
+
+        BellmanFord bell = new BellmanFord();
+
+        double bell1 = System.currentTimeMillis();
+        int pituusBell = bell.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
+        double bell2 = System.currentTimeMillis();
+
+        System.out.println("bellman " + (bell2 - bell1));
+        System.out.println("Reitin pituus: " + pituusBell);
 
         Dijkstra d = new Dijkstra();
 
