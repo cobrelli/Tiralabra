@@ -67,23 +67,23 @@ public class Main {
         System.out.println("Taulukon koko 150 x 150, maalipisteen sijainti: (15), (88)");
         System.out.println();
         
-        int[][] toka = s.teeSokkelo(150, 150, 15, 88);
+        int[][] toka = s.teeSokkelo(7000, 7000, 6900, 6900);
 
-        double luku = System.currentTimeMillis();
-        int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
-        double luku2 = System.currentTimeMillis();
-
-        System.out.println("BruteForce " + (luku2 - luku));
-        System.out.println("Reitin pituus: " + pituus);
-
-        BellmanFord bell = new BellmanFord();
-
-        double bell1 = System.currentTimeMillis();
-        int pituusBell = bell.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
-        double bell2 = System.currentTimeMillis();
-
-        System.out.println("bellman " + (bell2 - bell1));
-        System.out.println("Reitin pituus: " + pituusBell);
+//        double luku = System.currentTimeMillis();
+//        int pituus = bf.AjaBruteForce(toka, random, s.getLoppuY(), s.getLoppuX());
+//        double luku2 = System.currentTimeMillis();
+//
+//        System.out.println("BruteForce " + (luku2 - luku));
+//        System.out.println("Reitin pituus: " + pituus);
+//
+//        BellmanFord bell = new BellmanFord();
+//
+//        double bell1 = System.currentTimeMillis();
+//        int pituusBell = bell.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
+//        double bell2 = System.currentTimeMillis();
+//
+//        System.out.println("bellman " + (bell2 - bell1));
+//        System.out.println("Reitin pituus: " + pituusBell);
 
         Dijkstra d = new Dijkstra();
 
@@ -94,14 +94,14 @@ public class Main {
         System.out.println("Dijkstra " + (D2 - D1));
         System.out.println("Reitin pituus: " + pituusD);
 
-        AStar a = new AStar();
-
-        double A1 = System.currentTimeMillis();
-        int pituusA = a.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
-        double A2 = System.currentTimeMillis();
-
-        System.out.println("AStar " + (A2 - A1));
-        System.out.println("Reitin pituus: " + pituusA);
+//        AStar a = new AStar();
+//
+//        double A1 = System.currentTimeMillis();
+//        int pituusA = a.ratkaiseSokkelo(toka, s.getLoppuY(), s.getLoppuX());
+//        double A2 = System.currentTimeMillis();
+//
+//        System.out.println("AStar " + (A2 - A1));
+//        System.out.println("Reitin pituus: " + pituusA);
 
         System.out.println();
         System.out.println("Läpikäyty sokkelo");
